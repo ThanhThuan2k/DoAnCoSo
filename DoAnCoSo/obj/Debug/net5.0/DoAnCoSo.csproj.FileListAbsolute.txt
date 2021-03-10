@@ -109,3 +109,13 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LeftSidebar.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Home.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Header.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Setting.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_CssInjection.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_JsInjection.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Loading.cshtml.g.cs
