@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoAnCoSo.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class AdminController : Controller
     {
         public IActionResult Home()
