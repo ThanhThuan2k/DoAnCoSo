@@ -1,0 +1,5 @@
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.Data\bin\Debug\net5.0\DoAnCoSo.DTOs.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.Data\obj\Debug\net5.0\DoAnCoSo.Data.csprojAssemblyReference.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.Data\obj\Debug\net5.0\DoAnCoSo.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.Data\obj\Debug\net5.0\DoAnCoSo.Data.AssemblyInfoInputs.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.Data\obj\Debug\net5.0\DoAnCoSo.Data.AssemblyInfo.cs
