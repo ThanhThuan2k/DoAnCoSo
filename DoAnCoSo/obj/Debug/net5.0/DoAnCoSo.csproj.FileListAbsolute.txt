@@ -9,7 +9,6 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\ref\DoAnCoSo.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.pdb
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.Views.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.Views.pdb
-D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.csprojAssemblyReference.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.AssemblyInfoInputs.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.AssemblyInfo.cs
@@ -119,3 +118,6 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_CssInjection.cshtml.g.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_JsInjection.cshtml.g.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_Loading.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.csprojAssemblyReference.cache
