@@ -1,0 +1,12 @@
+﻿.notification-modal
+{
+	width: 180px;
+	height: 70px;
+	border-radius: 10px;
+	background-color: #f24c4c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	margin: 0 auto;
+}
