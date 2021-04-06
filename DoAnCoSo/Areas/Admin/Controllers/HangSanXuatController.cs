@@ -1,4 +1,6 @@
-﻿using DoAnCoSo.Data.Repository;
+﻿using DoAnCoSo.Areas.Admin.ViewModel.HangSanXuat;
+using DoAnCoSo.Data.Repository;
+using DoAnCoSo.DTOs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,16 +15,20 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 	{
 		private readonly IWebHostEnvironment _host;
 		private readonly HangSanXuatRepository hangSanXuatRepo = new HangSanXuatRepository();
-
-		public IActionResult DanhSachHangSanXuat(int page = 1, int size = 10)
+		public IActionResult Index()
 		{
-			var danhSachHangSanXuat = hangSanXuatRepo.DanhSachPhanTrang(page, size);
-			return View(danhSachHangSanXuat);
+			return View();
+		}
+
+		public JsonResult DanhSachHangSanXuat()
+		{
+			List<HangSanXuat> danhSachHangSanXuat = hangSanXuatRepo.DanhSach();
+			return Json(danhSachHangSanXuat);
 		}
 
 		public IActionResult DanhSachHangSanXuat_API(int page = 1, int size = 10)
 		{
-			var danhSachHangSanXuat = hangSanXuatRepo.DanhSachPhanTrang(page, size);
+			var danhSachHangSanXuat = hangSanXuatRepo.DanhSach();
 			return Ok(danhSachHangSanXuat);
 		}
 

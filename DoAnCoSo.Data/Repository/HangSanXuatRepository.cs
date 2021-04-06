@@ -1,20 +1,18 @@
 ﻿using DoAnCoSo.DTOs;
-using PagedList.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PagedList;
 
 namespace DoAnCoSo.Data.Repository
 {
 	public class HangSanXuatRepository : RepositoryBase
 	{
 		public HangSanXuatRepository() : base() { }
-		public IPagedList<HangSanXuat> DanhSachPhanTrang(int? page, int? size)
+		public List<HangSanXuat> DanhSach()
 		{
-			return db.HangSanXuats.ToPagedList(page ?? 1, size ?? 10);
+			return db.HangSanXuats.OrderBy(item => item.Id).ToList();
 		}
 
 		public async Task<bool> XoaHangSanXuat(int id)
