@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6i8P7iah4WuWOUnjKUzJWtkuieUyq2ZwQJavTJYa8VWbb8Fy44+QWXyWVbP6aaymLT6CTaMjnzO6u6qokPjhrg==",
+  "dgSpecHash": "L0BL3gLDU3nQ+aOKUbgm0qyrPuFI0xTUw/kOepwp68m/Boeueq8GfwJK3jDaOmcnlOh6QYbMQR0ViHTNckZdLA==",
   "success": true,
   "projectFilePath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.Data\\DoAnCoSo.Data.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,8 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\10.0.1\\newtonsoft.json.10.0.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\pagedlist.core\\1.17.4\\pagedlist.core.1.17.4.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\pagedlist.core.mvc\\3.0.0\\pagedlist.core.mvc.3.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
