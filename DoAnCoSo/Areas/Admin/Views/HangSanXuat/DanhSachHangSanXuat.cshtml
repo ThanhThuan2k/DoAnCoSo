@@ -1,0 +1,55 @@
+﻿@using PagedList.Core.Mvc;
+@using PagedList.Core;
+@model IPagedList<DoAnCoSo.DTOs.HangSanXuat>
+
+@{
+	ViewData["Title"] = "DanhSachHangSanXuat";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Count() > 0)
+{
+	<div class="card-box pb-10">
+		<div class="h5 pd-20 mb-0">Hãng sản xuất</div>
+		<table class="data-table table nowrap">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th class="table-plus">Thương Hiệu</th>
+					<th>Tên hãng</th>
+					<th class="datatable-nosort">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>@item.Id</td>
+						<td>
+							<img src="~/Images/HangSanXuat/@item.AnhDaiDien" alt="" width="50" height="50" />
+						</td>
+						<td>
+							<b class="name">@item.TenHang</b>
+						</td>
+						<td>
+							<div class="table-actions">
+								<a href="#" data-color="#265ed7" data-id="@item.Id"><i class="icon-copy dw dw-edit2"></i></a>
+								<a href="#" data-color="#e95959" data-id="@item.Id"><i class="icon-copy dw dw-delete-3"></i></a>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+else
+{
+	<div class="notification-modal">
+		<b class="text-danger">Không có dữ liệu</b>
+	</div>
+}
+
+<pager class="pagination"
+	list="(PagedList.Core.IPagedList)Model"
+	options="PagedList.Core.Mvc.PagedListRenderOptions.Bootstrap4PageNumbersOnly"></pager>
