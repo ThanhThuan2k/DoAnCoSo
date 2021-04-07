@@ -9,21 +9,23 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form class="modal-body" method="post">
+			<form class="modal-body chinhsua-form" method="post" enctype="multipart/form-data" asp-action="ChinhSua" asp-controller="HangSanXuat">
+				<input type="text" name="id" style="visibility: hidden;" id="hangSanXuatId" />
 				<div class="row">
 					<div class="col-12 text-center">
 						<div class="display-image-area border-0">
 							<img class="image-display display-image-chinhsua" src="" />
 						</div>
+						<input type="file" name="anhDaiDien" class="image-chinhSua-btn d-none" accept="image/*" />
 					</div>
 					<div class="col-12 text-center mt-2">
-						<input type="text" class="form-control m-auto font-18 display-name-chinhsua" style="width: 200px;" />
+						<input type="text" name="tenHang" class="form-control m-auto font-18 display-name-chinhsua" style="width: 200px;" />
 					</div>
 				</div>
 			</form>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-				<button type="button" class="btn btn-primary">Chỉnh sửa</button>
+				<button type="button" class="btn btn-primary submit-modal-chinhsua">Chỉnh sửa</button>
 			</div>
 		</div>
 	</div>

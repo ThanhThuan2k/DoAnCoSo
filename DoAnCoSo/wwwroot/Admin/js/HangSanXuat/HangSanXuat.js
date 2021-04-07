@@ -1,4 +1,8 @@
 ﻿window.addEventListener('load', () => {
+	loadData();
+});
+
+const loadData = () => {
 	try {
 		var danhSachUrl = '/admin/hangsanxuat/danhsachhangsanxuat';
 		axios.get(danhSachUrl).then((data) => {
@@ -10,13 +14,14 @@
 			} else {
 				renderListHangSanXuat(result);
 				setEditClickAction();
+				setDeleteClickAction();
 			}
 		});
 	}
 	catch (exception) {
 		alert("Không nhận được dữ liệu hợp lệ, vui lòng thử lại sau ít phút.");
 	}
-});
+}
 
 const createBtn = document.querySelector(".create-btn");
 createBtn.addEventListener('click', (e) => {
@@ -51,7 +56,7 @@ imageUploadBtn.addEventListener('change', function () {
 const deleteImageBtn = document.querySelector(".delete-image");
 deleteImageBtn.addEventListener('click', (e) => {
 	imageArea.textContent = "";
-	imageArea.insertAdjacentHTML('beforeend','<span class="image-area-text">Ảnh đại diện</span>');
+	imageArea.insertAdjacentHTML('beforeend', '<span class="image-area-text">Ảnh đại diện</span>');
 });
 
 const submitBtn = document.querySelector(".submit-btn");
@@ -64,13 +69,17 @@ submitBtn.addEventListener('click', (e) => {
 		tenHangInputTag.style.border = '1px solid red';
 		tenHangInputTag.focus();
 	}
-	var image = imageUploadBtn.files;
-	var formData = new FormData();
-	if (image.length !== 0) {
-		formData.append('image', image[0]);
-	}
 	if (tenHangSanXuat !== null || tenHangSanXuat !== "") {
-		formCreate.submit();
+		Swal.fire({
+			position: 'center',
+			icon: 'success',
+			title: 'Thao tác thành công',
+			showConfirmButton: false,
+			timer: 1500
+		}).then(() => {
+			$("#modal-themMoiHangSanXuat").modal("hide");
+			formCreate.submit();
+		});
 	}
 });
 
@@ -110,7 +119,9 @@ const setEditClickAction = () => {
 		allEditBtn[i].addEventListener('click', (e) => {
 			e.preventDefault();
 			let hangSanXuatId = e.currentTarget.getAttribute("data-id");
-			callToGetHangSanXuat(hangSanXuatId);
+			if (hangSanXuatId != null) {
+				callToGetHangSanXuat(hangSanXuatId);
+			}
 		});
 	}
 }
@@ -119,12 +130,102 @@ const callToGetHangSanXuat = id => {
 	var url = '/admin/hangsanxuat/chitiethangsanxuat/' + id;
 	axios.get(url).then(response => {
 		var data = response.data;
-		console.log(data);
 		$("#chinhSuaHangSanXuat").modal("show");
-		const displayNameChinhSua = document.querySelector(".display-name-chinhsua");
-		const displayImageChinhSua = document.querySelector(".display-image-chinhsua");
+		let displayNameChinhSua = document.querySelector(".display-name-chinhsua");
+		let displayImageChinhSua = document.querySelector(".display-image-chinhsua");
+		let idInput = document.querySelector("#hangSanXuatId");
+		idInput.value = id;
 		displayNameChinhSua.value = "";
 		displayNameChinhSua.setAttribute("placeholder", data.tenHang);
 		displayImageChinhSua.setAttribute("src", "/Images/HangSanXuat/" + data.anhDaiDien);
 	});
 }
+
+const submitChinhSuaBtn = document.querySelector(".submit-modal-chinhsua");
+const chinhSuaForm = document.querySelector(".chinhsua-form");
+submitChinhSuaBtn.addEventListener('click', () => {
+	Swal.fire({
+		position: 'center',
+		icon: 'success',
+		title: 'Thao tác thành công',
+		showConfirmButton: false,
+		timer: 1500
+	}).then(() => {
+		$("#chinhSuaHangSanXuat").modal("hide");
+		chinhSuaForm.submit();
+	});
+});
+
+const imgDisplay = document.querySelector(".image-display");
+const imageChinhSuaBtn = document.querySelector(".image-chinhSua-btn");
+const displayImageArea = document.querySelector(".display-image-area");
+
+displayImageArea.addEventListener('click', () => {
+	imageChinhSuaBtn.click();
+});
+
+imageChinhSuaBtn.addEventListener('change', () => {
+	if (imageChinhSuaBtn.files && imageChinhSuaBtn.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			imgDisplay.setAttribute("src", e.target.result);
+		}
+		reader.readAsDataURL(imageChinhSuaBtn.files[0]);
+	}
+});
+
+const submitXoaBtn = document.querySelector(".submit-modal-xoa");
+const setDeleteClickAction = () => {
+	const deleteList = document.querySelectorAll(".delete-btn");
+	for (var i = 0; i < deleteList.length; i++) {
+		deleteList[i].addEventListener('click', (e) => {
+			e.preventDefault();
+			var id = e.currentTarget.getAttribute("data-id");
+			if (id != null) {
+				xacNhanXoa(id)
+			}
+		});
+	}
+}
+
+const xacNhanXoa = id => {
+	var url = '/admin/hangsanxuat/chitiethangsanxuat/' + id;
+	axios.get(url).then(response => {
+		var data = response.data;
+		$("#xac-nhan-xoa").modal("show");
+		let displayNameXoa = document.querySelector(".display-name-xoa");
+		let displayImageXoa = document.querySelector(".display-image-xoa");
+		displayNameXoa.setAttribute("placeholder", data.tenHang);
+		displayImageXoa.setAttribute("src", "/Images/HangSanXuat/" + data.anhDaiDien);
+		submitXoaBtn.setAttribute("data-id", id);
+	});
+}
+
+
+submitXoaBtn.addEventListener('click', (e) => {
+	var thisId = e.currentTarget.getAttribute("data-id");
+	console.log("click");
+	if (thisId != null) {
+		var url = '/admin/hangsanxuat/xoa/' + thisId;
+		axios.get(url).then(response => {
+			console.log(response.data);
+			if (response.data != true) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Xảy ra lỗi trong quá trình xử lý',
+					footer: '<a href="#">Báo cáo lỗi này!</a>'
+				}).then(() => { loadData(); });
+			} else {
+				Swal.fire({
+					position: 'center',
+					icon: 'success',
+					title: 'Thao tác thành công',
+					showConfirmButton: false,
+					timer: 1500
+				}).then(() => { loadData(); });
+				$("#xac-nhan-xoa").modal("hide");
+			}
+		});
+	}
+});

@@ -68,21 +68,46 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			}
 		}
 
-		public async Task<IActionResult> Xoa(int? id)
+		[HttpPost]
+		public async Task<IActionResult> ChinhSua(int id, string tenHang, IFormFile anhDaiDien)
+		{
+			if(tenHang == null && anhDaiDien == null)
+			{
+				// không có sự thay đổi, ko cần update
+				return RedirectToAction("Index");
+			}
+			else
+			{
+				// kiểm tra xem phần nào đã thay đổi
+				if(tenHang != null)
+				{
+					await hangSanXuatRepo.ChinhSuaTen(id, tenHang);
+				}
+				if(anhDaiDien != null)
+				{
+					string relativePath = UploadImgAndReturnPath(anhDaiDien, "/Images/HangSanXuat/");
+					string nameOfImage = relativePath.Split('/').Last();
+					await hangSanXuatRepo.ChinhSuaAnhDaiDien(id, nameOfImage);
+				}
+			}
+			return RedirectToAction("Index");
+		}
+
+		public async Task<JsonResult> Xoa(int? id)
 		{
 			if (id == null)
 			{
-				return Ok(false);
+				return Json(false);
 			}
 			else
 			{
 				bool deleteResult = await hangSanXuatRepo.XoaHangSanXuat(id ?? 0);
 				if (deleteResult == false)
 				{
-					return Ok(false);
+					return Json(false);
 				}
 			}
-			return Ok(true);
+			return Json(true);
 		}
 
 		string UploadImgAndReturnPath(IFormFile file, string childFolder = "/Images/", bool saveInWwwRoot = true)

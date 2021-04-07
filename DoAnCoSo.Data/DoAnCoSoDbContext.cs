@@ -19,19 +19,28 @@ namespace DoAnCoSo.Data
 		public DbSet<SanPham_ThongSoKyThuat> SanPham_ThongSoKyThuats { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer("Data Source=45.119.83.27;Initial Catalog=DoAnCoSo;Persist Security Info=True;User ID=sa;Password=mssql@12345");
+			optionsBuilder.UseSqlServer("Data Source=45.119.83.27;Initial Catalog=DoAnCoSo;Persist Security Info=True;User ID=sa;Password=mssql@12345",
+				sqlServerOptionsAction: sqlOptions =>
+				{
+					sqlOptions.EnableRetryOnFailure(
+						maxRetryCount: 10,
+						maxRetryDelay: TimeSpan.FromSeconds(15),
+						errorNumbersToAdd: null);
+				});
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<SanPham_MauSac>().HasKey(table => new
 			{
-				table.IdMauSac, table.IdSanPham
+				table.IdMauSac,
+				table.IdSanPham
 			});
 
 			modelBuilder.Entity<SanPham_ThongSoKyThuat>().HasKey(table => new
 			{
-				table.IdSanPham, table.IdThongSoKyThuat
+				table.IdSanPham,
+				table.IdThongSoKyThuat
 			});
 		}
 	}
