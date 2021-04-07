@@ -12,7 +12,7 @@ namespace DoAnCoSo.Data.Repository
 		public HangSanXuatRepository() : base() { }
 		public List<HangSanXuat> DanhSach()
 		{
-			return db.HangSanXuats.OrderBy(item => item.Id).ToList();
+			return db.HangSanXuats.OrderByDescending(x => x.Id).ToList();
 		}
 
 		public async Task Create(string name, string duongDanAnhDaiDien)
@@ -37,6 +37,26 @@ namespace DoAnCoSo.Data.Repository
 			{
 				return new HangSanXuat();
 			}
+		}
+
+		public async Task ChinhSuaTen(int id, string tenHang)
+		{
+			HangSanXuat hangSanXuat = db.HangSanXuats.Find(id);
+			if(hangSanXuat != null)
+			{
+				hangSanXuat.TenHang = tenHang;
+			}
+			await Save();
+		}
+
+		public async Task ChinhSuaAnhDaiDien(int id, string duongDanAnh)
+		{
+			HangSanXuat hangSanXuat = db.HangSanXuats.Find(id);
+			if(hangSanXuat != null)
+			{
+				hangSanXuat.AnhDaiDien = duongDanAnh;
+			}
+			await Save();
 		}
 
 		public async Task<bool> XoaHangSanXuat(int id)
