@@ -155,7 +155,11 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.DTOs.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.Data.pdb
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\DoAnCoSo.DTOs.pdb
-D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\HangSanXuat\DanhSachHangSanXuat.cshtml.g.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\PagedList.Core.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\PagedList.Core.Mvc.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.MvcApplicationPartsAssemblyInfo.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\HangSanXuat\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Home\Index2.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\libman.json
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\HangSanXuat\_ThemMoi.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\HangSanXuat\_ChinhSua.cshtml.g.cs

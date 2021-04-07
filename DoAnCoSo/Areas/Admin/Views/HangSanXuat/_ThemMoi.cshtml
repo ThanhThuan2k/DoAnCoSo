@@ -1,0 +1,33 @@
+﻿<!-- Modal -->
+<div class="modal fade" id="modal-themMoiHangSanXuat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Thêm mới hãng sản xuất</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form class="modal-body form-create" method="post" enctype="multipart/form-data" asp-action="ThemMoi" asp-controller="HangSanXuat">
+				<div class="form-group">
+					<input type="text" class="form-control name" name="tenHang" placeholder="Tên hãng" />
+				</div>
+				<div class="form-group">
+					<div class="image-area">
+						<span class="image-area-text">Ảnh đại diện</span>
+					</div>
+					<input type="file" name="anhDaiDien" class="image-upload d-none" accept="image/*" />
+				</div>
+				<div class="form-group">
+					<div class="delete-image recycle-bin text-center">
+						<i class="fas fa-trash-alt"></i>
+					</div>
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+				<button type="submit" class="btn btn-primary submit-btn">Đồng ý</button>
+			</div>
+		</div>
+	</div>
+</div>
