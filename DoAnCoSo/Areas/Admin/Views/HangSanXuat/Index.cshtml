@@ -3,12 +3,15 @@
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-@section css{ 
+@section css{
 	<link href="~/Admin/css/NotificationModal.css" rel="stylesheet" />
 }
 
 <div class="card-box pb-10">
-	<div class="h5 pd-20 mb-0"><span>Hãng sản xuất</span></div>
+	<div class="h5 pd-20 mb-0 d-flex justify-content-between">
+		<span>Hãng sản xuất</span>
+		<button class="btn btn-success create-btn" data-link="/admin/hangsanxuat/themmoi">Thêm mới</button>
+	</div>
 	<table class="data-table table nowrap">
 		<thead>
 			<tr>
@@ -22,6 +25,12 @@
 		</tbody>
 	</table>
 </div>
+
+@*Modal thêm mới*@
+<partial name="_ThemMoi" />
+
+@*Modal chỉnh sửa*@
+<partial name="_ChinhSua" />
 
 <div class="notification-modal d-none">
 	Không có dữ liệu

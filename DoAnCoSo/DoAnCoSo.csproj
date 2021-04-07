@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Helper\" />
     <Folder Include="Models\" />
     <Folder Include="wwwroot\Images\HangSanXuat\" />
   </ItemGroup>
