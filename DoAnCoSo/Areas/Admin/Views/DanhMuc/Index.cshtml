@@ -1,0 +1,44 @@
+﻿@{
+	ViewData["Title"] = "Danh mục sản phẩm";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+	<link href="~/Admin/css/NotificationModal.css" rel="stylesheet" />
+}
+
+<div class="card-box pb-10">
+	<div class="h5 pd-20 mb-0 d-flex justify-content-between">
+		<span>Hãng sản xuất</span>
+		<button class="btn btn-success create-btn" data-link="/admin/danhmuc/themmoi">Thêm mới</button>
+	</div>
+	<table class="data-table table nowrap">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th class="table-plus">Thương Hiệu</th>
+				<th>Tên hãng</th>
+				<th class="datatable-nosort">Actions</th>
+			</tr>
+		</thead>
+		<tbody class="tbody">
+		</tbody>
+	</table>
+</div>
+
+@*Modal thêm mới*@
+<partial name="_ThemMoi" />
+
+@*Modal chỉnh sửa*@
+<partial name="_ChinhSua" />
+
+@*Modal xác nhận xóa*@
+<partial name="_XacNhanXoa" />
+
+<div class="notification-modal d-none">
+	Không có dữ liệu
+</div>
+
+@section js{
+	<script src="~/Admin/js/DanhMuc/DanhMuc.js"></script>
+}

@@ -4,14 +4,16 @@ using DoAnCoSo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DoAnCoSo.Data.Migrations
 {
     [DbContext(typeof(DoAnCoSoDbContext))]
-    partial class DoAnCoSoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210408103402_update-database")]
+    partial class updatedatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,12 +199,6 @@ namespace DoAnCoSo.Data.Migrations
                     b.Property<bool>("BiKhoa")
                         .HasColumnType("bit");
 
-                    b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
@@ -210,12 +206,6 @@ namespace DoAnCoSo.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenHienThi")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
