@@ -1,5 +1,4 @@
-﻿using DoAnCoSo.Areas.Admin.ViewModel.HangSanXuat;
-using DoAnCoSo.Data.Repository;
+﻿using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

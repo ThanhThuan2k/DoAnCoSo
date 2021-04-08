@@ -1,0 +1,32 @@
+﻿<!--Modal chinh sua-->
+<!-- Button trigger modal -->
+<div class="modal fade" id="chinhSuaDanhMuc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Chi tiết danh mục</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form class="modal-body chinhsua-form" method="post" enctype="multipart/form-data" asp-action="ChinhSua" asp-controller="DanhMuc">
+				<input type="text" name="id" style="visibility: hidden;" id="danhMucId" />
+				<div class="row">
+					<div class="col-12 text-center">
+						<div class="display-image-area border-0">
+							<img class="image-display display-image-chinhsua" src="" />
+						</div>
+						<input type="file" name="icon" class="image-chinhSua-btn d-none" accept="image/*" />
+					</div>
+					<div class="col-12 text-center mt-2">
+						<input type="text" name="tenDanhMuc" class="form-control m-auto font-18 display-name-chinhsua" style="width: 200px;" />
+					</div>
+				</div>
+			</form>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+				<button type="button" class="btn btn-primary submit-modal-chinhsua">Chỉnh sửa</button>
+			</div>
+		</div>
+	</div>
+</div>
