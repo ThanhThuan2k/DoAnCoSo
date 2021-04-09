@@ -17,3 +17,7 @@ imageUploadButton.addEventListener('change', () => {
 		reader.readAsDataURL(imageUploadButton.files[0]);
 	}
 });
+
+select(".submit-button").addEventListener('click', () => {
+	select(".them-moi-form").submit();
+});

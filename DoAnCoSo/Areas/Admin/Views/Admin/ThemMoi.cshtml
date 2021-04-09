@@ -1,6 +1,6 @@
 ﻿@model DoAnCoSo.Areas.Admin.ViewModel.DangKiTaiKhoanAdminViewModel
 @{
-	ViewData["Title"] = "ThemMoi";
+	ViewData["Title"] = "Tạo tài khoản Admin";
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
@@ -40,12 +40,11 @@
 				<div class="col-md-6 col-sm-12 text-right">
 					<div class="dropdown">
 						<a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-							January 2018
+							Phân quyền
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
-							<a class="dropdown-item" href="#">Export List</a>
-							<a class="dropdown-item" href="#">Policies</a>
-							<a class="dropdown-item" href="#">View Assets</a>
+							<a class="dropdown-item" href="#">Admin</a>
+							<a class="dropdown-item" href="#">Superadmin</a>
 						</div>
 					</div>
 				</div>
@@ -57,7 +56,7 @@
 				<h4 class="text-blue h4">Step wizard</h4>
 			</div>
 			<div class="wizard-content">
-				<form class="tab-wizard wizard-circle wizard">
+				<form class="tab-wizard wizard-circle wizard them-moi-form" method="post" asp-action="ThemMoi" asp-controller="Admin" asp-area="Admin" enctype="multipart/form-data">
 					<h5>Thông tin cá nhân</h5>
 					<section>
 						<div class="row">
@@ -103,24 +102,27 @@
 								<div class="form-group">
 									<label>Tên hiển thị :</label>
 									<input type="text" class="form-control" asp-for="TenHienThi">
+									<div class="form-control-feedback">Tên hiển thị đã tồn tại</div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Mật khẩu :</label>
 									<input type="password" class="form-control" asp-for="Password">
+									<div class="form-control-feedback password-feedback d-none">Mật khẩu không được để trống!</div>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label>Nhập lại mật khẩu :</label>
 									<input type="password" class="form-control" asp-for="NhapLaiMatKhau">
+									<div class="form-control-feedback password-retype d-none">Mật khẩu không khớp</div>
 								</div>
 							</div>
 						</div>
 					</section>
 					<!-- Step 3 -->
-					<h5>Thông tin khác</h5>
+					<h5>Ảnh đại diện</h5>
 					<section>
 						<div class="row">
 							<div class="col-12 d-flex justify-content-center">
@@ -170,11 +172,11 @@
 				<div class="modal-content">
 					<div class="modal-body text-center font-18">
 						<h3 class="mb-20">Form Submitted!</h3>
-						<div class="mb-30 text-center"><img src="vendors/images/success.png"></div>
+						<div class="mb-30 text-center"><img src="~/Admin/vendors/images/success.png"></div>
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					</div>
 					<div class="modal-footer justify-content-center">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Done</button>
+						<button type="button" class="btn btn-primary submit-button" data-dismiss="modal">Done</button>
 					</div>
 				</div>
 			</div>

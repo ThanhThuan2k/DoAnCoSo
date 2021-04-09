@@ -9,9 +9,9 @@ namespace DoAnCoSo.Data.JsonModel
 	public class TaiKhoanAdminJsonModal
 	{
 		public int Id { get; set; }
-		public string Username { get; set; }
+		public string TenHienThi { get; set; }
 		public string HoTen { get; set; }
 		public DateTime? LanTruyCapCuoi { get; set; }
-		public bool AnhDaiDien { get; set; }
+		public string AnhDaiDien { get; set; }
 	}
 }
