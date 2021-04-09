@@ -1,43 +1,101 @@
 ﻿using DoAnCoSo.Areas.Admin.ViewModel;
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
+using DoAnCoSo.Helper;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace DoAnCoSo.Areas.Admin.Controllers
 {
-    [Area("Admin")]
-    public class AdminController : Controller
-    {
-        TaiKhoanAdminRepository taiKhoanAdminRepo = new TaiKhoanAdminRepository();
-        public IActionResult Home()
-        {
-            return View();
-        }
-
-        public IActionResult Index()
+	[Area("Admin")]
+	public class AdminController : Controller
+	{
+		TaiKhoanAdminRepository taiKhoanAdminRepo = new TaiKhoanAdminRepository();
+		private readonly IWebHostEnvironment _host;
+		public AdminController(IWebHostEnvironment host)
 		{
-            return View();
+			_host = host;
 		}
 
-        public async Task<JsonResult> DanhSach()
+		public IActionResult Home()
 		{
-            var listTaiKhoan = await taiKhoanAdminRepo.DanhSach();
-            return Json(listTaiKhoan);
+			return View();
 		}
 
-        public IActionResult ThemMoi()
+		public IActionResult Index()
 		{
-            return View();
+			return View();
 		}
 
-        [HttpPost]
-        public async Task<IActionResult> ThemMoi(DangKiTaiKhoanAdminViewModel model)
+		public async Task<JsonResult> DanhSach()
 		{
-            return View();
+			var listTaiKhoan = await taiKhoanAdminRepo.DanhSach();
+			return Json(listTaiKhoan);
 		}
-    }
+
+		public IActionResult ThemMoi()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> ThemMoi(DangKiTaiKhoanAdminViewModel model)
+		{
+			string avatar = "";
+			if (model.Avatar != null)
+			{
+				string Path = UploadImgAndReturnPath(model.Avatar, "/Images/Admin/");
+				avatar = Path.Split('/').Last();
+			}
+
+			string pass = PasswordHelper.EncryptSHA512(model.Password, model.Username);
+			TaiKhoanAdmin taiKhoanAdmin = new TaiKhoanAdmin()
+			{
+				Username = model.Username,
+				Password = pass,
+				HoTen = model.Ho + " " + model.Ten,
+				AnhDaiDien = avatar,
+				isSuperAdmin = false,
+				BiKhoa = false,
+				LanTruyCapCuoi = DateTime.Now,
+				DiaChi = model.DiaChi,
+				TenHienThi = model.TenHienThi,
+				Email = model.Email,
+				SoDienThoai = model.SoDienThoai
+			};
+			await taiKhoanAdminRepo.ThemTaiKhoan(taiKhoanAdmin);
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult ChinhSua(int? id)
+		{
+			return View();
+		}
+
+		string UploadImgAndReturnPath(IFormFile file, string childFolder = "/Images/", bool saveInWwwRoot = true)
+		{
+			var y = _host.WebRootPath;
+			var root = saveInWwwRoot ? _host.WebRootPath : _host.ContentRootPath;
+			var filename = Path.GetFileNameWithoutExtension(file.FileName)
+							+ DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss-fff")
+							+ Path.GetExtension(file.FileName);
+			if (!Directory.Exists(root + childFolder))
+			{
+				Directory.CreateDirectory(root + childFolder);
+			}
+			var relativePath = childFolder + filename;
+			var path = root + relativePath;
+			var x = new FileStream(path, FileMode.Create);
+			file.CopyTo(x);
+			x.Dispose();
+			GC.Collect();
+			return relativePath;
+		}
+	}
 }

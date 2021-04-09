@@ -17,6 +17,8 @@ namespace DoAnCoSo.Data
 		public DbSet<ThongSoKyThuat> ThongSoKyThuats { get; set; }
 		public DbSet<SanPham_MauSac> SanPham_MauSac { get; set; }
 		public DbSet<SanPham_ThongSoKyThuat> SanPham_ThongSoKyThuats { get; set; }
+		public DbSet<TaiKhoanAdmin> TaiKhoanAdmins { get; set; }
+		public DbSet<ThongTinKhachHang> ThongTinKhachHangs { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Data Source=45.119.83.27;Initial Catalog=DoAnCoSo;Persist Security Info=True;User ID=sa;Password=mssql@12345",

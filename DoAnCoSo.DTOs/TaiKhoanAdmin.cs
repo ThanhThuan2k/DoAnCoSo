@@ -17,7 +17,7 @@ namespace DoAnCoSo.DTOs
 		public DateTime? LanTruyCapCuoi { get; set; }
 		public bool BiKhoa { get; set; }
 		public bool isSuperAdmin { get; set; }
-		public bool AnhDaiDien { get; set; }
+		public string AnhDaiDien { get; set; }
 		public string DiaChi { get; set; }
 		public string TenHienThi { get; set; }
 		public string Email { get; set; }

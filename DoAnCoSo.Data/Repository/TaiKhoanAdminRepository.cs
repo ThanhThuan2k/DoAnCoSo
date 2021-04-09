@@ -17,11 +17,17 @@ namespace DoAnCoSo.Data.Repository
 			return await db.TaiKhoanAdmins.Select(item => new TaiKhoanAdminJsonModal()
 			{
 				Id = item.Id,
-				Username = item.Username,
+				TenHienThi = item.TenHienThi,
 				HoTen = item.HoTen,
 				AnhDaiDien = item.AnhDaiDien,
 				LanTruyCapCuoi = item.LanTruyCapCuoi
 			}).OrderByDescending(x => x.Id).ToListAsync();
+		}
+
+		public async Task ThemTaiKhoan(TaiKhoanAdmin admin)
+		{
+			await db.TaiKhoanAdmins.AddAsync(admin);
+			await Save();
 		}
 	}
 }
