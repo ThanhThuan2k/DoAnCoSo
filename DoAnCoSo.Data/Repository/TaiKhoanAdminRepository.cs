@@ -29,5 +29,60 @@ namespace DoAnCoSo.Data.Repository
 			await db.TaiKhoanAdmins.AddAsync(admin);
 			await Save();
 		}
+
+		public async Task<bool> Authorize(string username, string password)
+		{
+			TaiKhoanAdmin taiKhoan = db.TaiKhoanAdmins
+				.Where(x => x.Username == username && x.Password == password).SingleOrDefault();
+			if(taiKhoan != null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public async Task<bool> XoaTaiKhoan(int id)
+		{
+			TaiKhoanAdmin taiKhoan = db.TaiKhoanAdmins.Find(id);
+			if (taiKhoan != null)
+			{
+				try
+				{
+					db.TaiKhoanAdmins.Remove(taiKhoan);
+					await Save();
+					return true;
+				}
+				catch
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public async Task<ThongTinTaiKhoanAdminJsonModal> ChiTietTaiKhoan(int id)
+		{
+			ThongTinTaiKhoanAdminJsonModal chiTietTaiKhoan = await db.TaiKhoanAdmins
+				.Select(item => new ThongTinTaiKhoanAdminJsonModal()
+				{
+					Id = item.Id,
+					TenHienThi = item.TenHienThi,
+					AnhDaiDien = item.AnhDaiDien
+				}).SingleOrDefaultAsync(x => x.Id == id);
+			if(chiTietTaiKhoan != null)
+			{
+				return chiTietTaiKhoan;
+			}
+			else
+			{
+				return new ThongTinTaiKhoanAdminJsonModal();
+			}
+		}
 	}
 }
