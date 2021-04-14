@@ -73,9 +73,47 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			return RedirectToAction("Index");
 		}
 
-		public IActionResult ChinhSua(int? id)
+		public async Task<JsonResult> ThongTinTaiKhoan(int id)
 		{
-			return View();
+			var thongTinTaiKhoanAdmin = await taiKhoanAdminRepo.ChiTietTaiKhoan(id);
+			if(thongTinTaiKhoanAdmin.Id != 0)
+			{
+				return Json(thongTinTaiKhoanAdmin);
+			}
+			return Json(false);
+		}
+
+		public async Task<JsonResult> XoaTaiKhoan(int? id)
+		{
+			if (id != null)
+			{
+				bool deleteResult = await taiKhoanAdminRepo.XoaTaiKhoan(id ?? 0);
+				if (deleteResult)
+				{
+					return Json(true);
+				}
+				else
+				{
+					return Json(false);
+				}
+
+			}
+			return Json(false);
+		}
+
+		[HttpPost]
+		public async Task<JsonResult> DeleteAuthorize(string username, string password)
+		{
+			string encryptPass = PasswordHelper.EncryptSHA512(password, username);
+			bool authorize = await taiKhoanAdminRepo.Authorize(username, encryptPass);
+			if(authorize)
+			{
+				return Json(true);
+			}
+			else
+			{
+				return Json(false);
+			}
 		}
 
 		string UploadImgAndReturnPath(IFormFile file, string childFolder = "/Images/", bool saveInWwwRoot = true)
@@ -97,5 +135,6 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			GC.Collect();
 			return relativePath;
 		}
+
 	}
 }
