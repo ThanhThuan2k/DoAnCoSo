@@ -1,5 +1,6 @@
 ﻿using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 namespace DoAnCoSo.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize(Roles = "Admin, SuperAdmin")]
 	public class HangSanXuatController : Controller
 	{
 		private readonly IWebHostEnvironment _host;
