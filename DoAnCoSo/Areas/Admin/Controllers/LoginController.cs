@@ -1,4 +1,5 @@
-﻿using DoAnCoSo.Data.JsonModel;
+﻿using DoAnCoSo.Areas.Admin.ViewModel;
+using DoAnCoSo.Data.JsonModel;
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.Helper;
 using Microsoft.AspNetCore.Authentication;
@@ -22,7 +23,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 
 		public IActionResult Index()
 		{
-			if(User.Identity.IsAuthenticated)
+			if (User.Identity.IsAuthenticated)
 			{
 				return RedirectToAction("Home", "Admin");
 			}
@@ -30,30 +31,39 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		}
 
 		[HttpPost]
-		public async Task<JsonResult> Index(string username, string password, bool isSuper, bool RememberMe)
+		public async Task<JsonResult> Index([FromBody] DangNhapViewModel model)
 		{
-			if(username != null && password != null)
+			if (model != null)
 			{
-				string EncryptPassword = PasswordHelper.EncryptSHA512(password, username);
-				LoginJsonModel isSuccess = await loginRepository.SuccessLogin(username, EncryptPassword, isSuper);
-				if(isSuccess.isSuccessfully)
+				if (model.username != null && model.password != null)
 				{
-					bool isRoot = isSuccess.isRoot ?? false;
-					var claims = new List<Claim>
+					string EncryptPassword = PasswordHelper.EncryptSHA512(model.password, model.username);
+					LoginJsonModel isSuccess = await loginRepository.SuccessLoginAsync(model.username, EncryptPassword, model.isSupper);
+					if (isSuccess.isSuccessfully)
 					{
-						new Claim(ClaimTypes.Name, username),
-						new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin")
-					};
-					var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-					await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-						new ClaimsPrincipal(claimsIdentity),
-						new AuthenticationProperties()
+						bool isRoot = isSuccess.isRoot ?? false;
+						var claims = new List<Claim>
 						{
-							IsPersistent = RememberMe,
-							ExpiresUtc = DateTime.UtcNow.AddMinutes(240)
-						});
-					return Json(true);
+							new Claim(ClaimTypes.Name, model.username),
+							new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin"),
+							new Claim("Image", "~/Admin/vendors/images/photo1.jpg")
+						};
+						var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+						await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+							new ClaimsPrincipal(claimsIdentity),
+							new AuthenticationProperties()
+							{
+								IsPersistent = model.RememberMe,
+								ExpiresUtc = DateTime.UtcNow.AddMinutes(240)
+							});
+						HttpContext.User.AddIdentity(claimsIdentity);
+						return Json(true);
+					}
+					else
+					{
+						return Json(false);
+					}
 				}
 				else
 				{

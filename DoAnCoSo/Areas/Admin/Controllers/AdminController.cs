@@ -2,6 +2,7 @@
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
 using DoAnCoSo.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 namespace DoAnCoSo.Areas.Admin.Controllers
 {
 	[Area("Admin")]
+	[Authorize(Roles= "Admin, SuperAdmin")]
 	public class AdminController : Controller
 	{
 		TaiKhoanAdminRepository taiKhoanAdminRepo = new TaiKhoanAdminRepository();
@@ -30,6 +32,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 
 		public IActionResult Index()
 		{
+			var x = User.Claims.ToList();
 			return View();
 		}
 

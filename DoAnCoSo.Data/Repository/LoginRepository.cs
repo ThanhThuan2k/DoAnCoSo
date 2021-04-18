@@ -11,7 +11,7 @@ namespace DoAnCoSo.Data.Repository
 {
 	public class LoginRepository : RepositoryBase
 	{
-		public async Task<LoginJsonModel> SuccessLogin(string username, string password, bool isSupper)
+		public async Task<LoginJsonModel> SuccessLoginAsync(string username, string password, bool isSupper)
 		{
 			if(username != null && password != null)
 			{
@@ -21,6 +21,32 @@ namespace DoAnCoSo.Data.Repository
 						.SingleOrDefaultAsync(x => x.Username.ToLower() == username.ToLower() && 
 											  x.Password == password && x.isSuperAdmin == isSupper);
 					if(user != null)
+					{
+						return new LoginJsonModel(true, user.isSuperAdmin);
+					}
+					else
+					{
+						return new LoginJsonModel();
+					}
+				}
+				catch
+				{
+					return new LoginJsonModel();
+				}
+			}
+			return new LoginJsonModel();
+		}
+
+		public LoginJsonModel SuccessLogin(string username, string password, bool isSupper)
+		{
+			if (username != null && password != null)
+			{
+				try
+				{
+					TaiKhoanAdmin user = db.TaiKhoanAdmins
+						.SingleOrDefault(x => x.Username.ToLower() == username.ToLower() &&
+											  x.Password == password && x.isSuperAdmin == isSupper);
+					if (user != null)
 					{
 						return new LoginJsonModel(true, user.isSuperAdmin);
 					}
