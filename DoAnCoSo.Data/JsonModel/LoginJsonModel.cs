@@ -15,7 +15,7 @@ namespace DoAnCoSo.Data.JsonModel
 			this.isSuccessfully = false;
 			this.isRoot = false;
 		}
-		public LoginJsonModel(bool isSuccessfully, bool? isRoot)
+		public LoginJsonModel(int id, string hoTen, bool isSuccessfully, bool? isRoot)
 		{
 			this.isSuccessfully = isSuccessfully;
 			this.isRoot = isRoot;

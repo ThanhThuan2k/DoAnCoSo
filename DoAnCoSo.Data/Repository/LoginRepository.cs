@@ -22,7 +22,7 @@ namespace DoAnCoSo.Data.Repository
 											  x.Password == password && x.isSuperAdmin == isSupper);
 					if(user != null)
 					{
-						return new LoginJsonModel(true, user.isSuperAdmin);
+						return new LoginJsonModel(user.Id, user.HoTen, true, user.isSuperAdmin);
 					}
 					else
 					{
@@ -48,7 +48,7 @@ namespace DoAnCoSo.Data.Repository
 											  x.Password == password && x.isSuperAdmin == isSupper);
 					if (user != null)
 					{
-						return new LoginJsonModel(true, user.isSuperAdmin);
+						return new LoginJsonModel(user.Id, user.HoTen, true, user.isSuperAdmin);
 					}
 					else
 					{
@@ -61,6 +61,26 @@ namespace DoAnCoSo.Data.Repository
 				}
 			}
 			return new LoginJsonModel();
+		}
+
+		public async Task<string> getPathImage(string username)
+		{
+			if (username != null)
+			{
+				TaiKhoanAdmin taiKhoan = await db.TaiKhoanAdmins.Where(x => x.Username == username).FirstOrDefaultAsync();
+				return taiKhoan.AnhDaiDien;
+			}
+			else return "~/Admin/vendors/images/photo1.jpg";
+		}
+
+		public async Task<string> getHoTen(string username)
+		{
+			if(username != null)
+			{
+				TaiKhoanAdmin taiKhoanAdmin = await db.TaiKhoanAdmins.Where(x => x.Username == username).FirstOrDefaultAsync();
+				return taiKhoanAdmin.HoTen;
+			}
+			return "Guest";
 		}
 	}
 }

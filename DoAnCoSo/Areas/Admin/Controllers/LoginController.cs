@@ -4,6 +4,7 @@ using DoAnCoSo.Data.Repository;
 using DoAnCoSo.Helper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		{
 			if (User.Identity.IsAuthenticated)
 			{
-				return RedirectToAction("Home", "Admin");
+				return RedirectToAction("/admin");
 			}
 			return View();
 		}
@@ -42,22 +43,23 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 					if (isSuccess.isSuccessfully)
 					{
 						bool isRoot = isSuccess.isRoot ?? false;
+						string imagePath = await loginRepository.getPathImage(model.username);
+						string name = await loginRepository.getHoTen(model.username);
 						var claims = new List<Claim>
 						{
-							new Claim(ClaimTypes.Name, model.username),
+							new Claim(ClaimTypes.Name, name),
 							new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin"),
-							new Claim("Image", "~/Admin/vendors/images/photo1.jpg")
+							new Claim(ClaimTypes.Uri, imagePath)
 						};
 						var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-						await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+						 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
 							new ClaimsPrincipal(claimsIdentity),
 							new AuthenticationProperties()
 							{
 								IsPersistent = model.RememberMe,
 								ExpiresUtc = DateTime.UtcNow.AddMinutes(240)
 							});
-						HttpContext.User.AddIdentity(claimsIdentity);
 						return Json(true);
 					}
 					else
@@ -74,6 +76,12 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			{
 				return Json(false);
 			}
+		}
+
+		public async Task<IActionResult> DangXuat()
+		{
+			await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+			return RedirectToAction("Index");
 		}
 	}
 }

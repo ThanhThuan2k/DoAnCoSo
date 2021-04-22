@@ -1,0 +1,79 @@
+﻿@model DoAnCoSo.Areas.Admin.ViewModel.SanPham.ThemSanPhamJsonModel
+@{
+	ViewData["Title"] = "ThemSanPham";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+	<link href="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+	<link href="~/Admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+	<link href="~/lib/summernote/summernote.min.css" rel="stylesheet" />
+}
+
+<form asp-action="ThemSanPham" asp-controller="SanPham" asp-area="Admin" method="post" enctype="multipart/form-data">
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label" asp-for="TenSanPham"></label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" asp-for="TenSanPham" type="text">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label" asp-for="TinhTrangMay"></label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" asp-for="TinhTrangMay" type="text">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label" asp-for="ThoiHanBaoHanh"></label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" asp-for="ThoiHanBaoHanh" type="text">
+		</div>
+	</div>
+	<div class="form-group">
+		<div id="summernote">
+
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-12 pd-0">
+		<div class="form-group">
+			<h5 class="h5">Giá gốc sản phẩm</h5>
+			<div class="input-group bootstrap-touchspin bootstrap-touchspin-injected mt-2">
+				<span class="input-group-btn input-group-prepend">
+					<button class="btn btn-primary bootstrap-touchspin-down" type="button">
+						-
+					</button>
+				</span>
+				<span class="input-group-addon bootstrap-touchspin-prefix input-group-prepend">
+					<span class="input-group-text">
+						VND
+					</span>
+				</span>
+				<input asp-for="GiaGocSanPham" type="text" value="1,000,000" class="form-control">
+				<span class="input-group-btn input-group-append">
+					<button class="btn btn-primary bootstrap-touchspin-up" type="button">
+						+
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="mb-30">
+			<h5 class="h5">Quy cách đóng hộp</h5>
+			<input type="text" value="1 điện thoại" asp-for="QuyCachDongHop" data-role="tagsinput" style="display: none;">
+		</div>
+	</div>
+	<div class="form-group">
+		@*Upload ảnh*@
+		<div id="dropZone">
+
+		</div>
+	</div>
+</form>
+
+@section js{
+	@*<script src="~/Admin/vendors/scripts/advanced-components.js"></script>*@
+	<script src="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<script src="~/lib/summernote/summernote.min.js"></script>
+	<script src="~/Admin/js/Admin/ThemSanPham.js"></script>
+}

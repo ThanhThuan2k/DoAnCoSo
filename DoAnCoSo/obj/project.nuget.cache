@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kWG3VpAEDYvzeIjdXdDjlhm9Rkc1CuU2zKIkLFBl2Yy+Kizwr1ImFufhNDvBRxj1lHE575aivmvuSIg5PDhHXg==",
+  "dgSpecHash": "GG3YdgU4GsBdgBeyJnVoHw0GV4UJxzZe7+zRhrrcCtwtqhZBiXw7x5TplyoIUCN+E4UTkxhzUTnOBKRs3fTK4Q==",
   "success": true,
   "projectFilePath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.csproj",
   "expectedPackageFiles": [
@@ -84,6 +84,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.linq.dynamic.core\\1.2.9\\system.linq.dynamic.core.1.2.9.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",

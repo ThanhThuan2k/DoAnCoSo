@@ -1,7 +1,7 @@
 ﻿const sendData = async (data) => {
 	let url = "/admin/login/index";
 	await axios.post(url, data).then(res => {
-		if (res !== true) {
+		if (res.data !== true) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -11,8 +11,7 @@
 				document.querySelector("#password-input").value = "";
 			});
 		} else {
-			window.location.href = "/admin/admin/home";
-			console.log(res);
+			window.location.href = "/admin";
 		}
 	});
 }
@@ -23,6 +22,7 @@ document.querySelector(".btn-block").addEventListener('click', function (e) {
 	let supperadmin = document.querySelector("#supperadmin");
 	let rememberTag = document.querySelector("#remember");
 	let isSupper = supperadmin.checked ? true : false;
+	let remember = rememberTag.checked ? true : false;
 	var data = {
 		username: username,
 		password: password,
@@ -30,5 +30,5 @@ document.querySelector(".btn-block").addEventListener('click', function (e) {
 		RememberMe: remember
 	}
 	console.log(data);
-	//sendData(data);
+	sendData(data);
 });
