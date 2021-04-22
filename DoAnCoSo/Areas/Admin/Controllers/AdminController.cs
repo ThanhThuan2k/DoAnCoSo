@@ -2,6 +2,7 @@
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
 using DoAnCoSo.Helper;
+using DoAnCoSo.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -15,38 +16,44 @@ using System.Threading.Tasks;
 namespace DoAnCoSo.Areas.Admin.Controllers
 {
 	[Area("Admin")]
-	[Authorize(Roles= "Admin, SuperAdmin")]
 	public class AdminController : Controller
 	{
 		TaiKhoanAdminRepository taiKhoanAdminRepo = new TaiKhoanAdminRepository();
 		private readonly IWebHostEnvironment _host;
+		private ServiceBase services = new ServiceBase();
 		public AdminController(IWebHostEnvironment host)
 		{
 			_host = host;
 		}
 
+		[Authorize(Roles = "Admin, SuperAdmin")]
+		[Route("/admin")]
 		public IActionResult Home()
 		{
+			var x = User.Claims.Where(x => x.Type.ToLower().Contains("actor")).Select(x => x.Value).FirstOrDefault();
 			return View();
 		}
 
+		[Authorize(Roles = "Admin, SuperAdmin")]
 		public IActionResult Index()
 		{
-			var x = User.Claims.ToList();
 			return View();
 		}
 
+		[Authorize(Roles = "Admin, SuperAdmin")]
 		public async Task<JsonResult> DanhSach()
 		{
 			var listTaiKhoan = await taiKhoanAdminRepo.DanhSach();
 			return Json(listTaiKhoan);
 		}
 
+		[Authorize(Roles = "SuperAdmin")]
 		public IActionResult ThemMoi()
 		{
 			return View();
 		}
 
+		[Authorize(Roles = "SuperAdmin")]
 		[HttpPost]
 		public async Task<IActionResult> ThemMoi(DangKiTaiKhoanAdminViewModel model)
 		{
@@ -79,7 +86,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		public async Task<JsonResult> ThongTinTaiKhoan(int id)
 		{
 			var thongTinTaiKhoanAdmin = await taiKhoanAdminRepo.ChiTietTaiKhoan(id);
-			if(thongTinTaiKhoanAdmin.Id != 0)
+			if (thongTinTaiKhoanAdmin.Id != 0)
 			{
 				return Json(thongTinTaiKhoanAdmin);
 			}
@@ -109,7 +116,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		{
 			string encryptPass = PasswordHelper.EncryptSHA512(password, username);
 			bool authorize = await taiKhoanAdminRepo.Authorize(username, encryptPass);
-			if(authorize)
+			if (authorize)
 			{
 				return Json(true);
 			}

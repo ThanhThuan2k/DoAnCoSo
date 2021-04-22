@@ -171,4 +171,9 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\ref\DoAnCoSo.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.pdb
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.genruntimeconfig.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.MvcApplicationPartsAssemblyInfo.cs
-D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\ChinhSua.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\Login\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\AccessDenied\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\ChiTietSanPham\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\SanPham\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\SanPham\ThemSanPham.cshtml.g.cs
