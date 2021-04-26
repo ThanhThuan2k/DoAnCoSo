@@ -34,6 +34,9 @@
             "projectReferences": {
               "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj": {
                 "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj"
+              },
+              "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj": {
+                "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj"
               }
             }
           }
@@ -207,6 +210,9 @@
               },
               "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj": {
                 "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj"
+              },
+              "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj": {
+                "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj"
               }
             }
           }
@@ -250,6 +256,64 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj",
+        "projectName": "Logging",
+        "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

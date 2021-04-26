@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using System.Reflection;
+using Logging;
 
 namespace DoAnCoSo.Services
 {
@@ -59,34 +60,34 @@ namespace DoAnCoSo.Services
 			var dataObject = Activator.CreateInstance<TModel>();
 			bool isNotUpdate = false;
 
-			foreach(var item in stype.GetProperties())
+			foreach (var item in stype.GetProperties())
 			{
 				var attribute = item.GetCustomAttributes();
-				 foreach(var attr in attribute)
+				foreach (var attr in attribute)
 				{
-					if(attribute.ToString() == "Not Clone")
+					if (attribute.ToString() == "NotClone")
 					{
 						isNotUpdate = true;
 					}
-					if(isNotUpdate)
-					{
-						isNotUpdate = !isNotUpdate;
-					}
-					object value = null;
-					try
-					{
-						value = item.GetValue(data);
-					}
-					catch
-					{
-						continue;
-					}
-					if(value == null && !replaceWithNull)
-					{
-						continue;
-					}
-					dtype.GetProperty(item.Name)?.SetValue(dataObject, value);
 				}
+				if (isNotUpdate)
+				{
+					isNotUpdate = !isNotUpdate;
+				}
+				object value = null;
+				try
+				{
+					value = item.GetValue(data);
+				}
+				catch
+				{
+					continue;
+				}
+				if (value == null && !replaceWithNull)
+				{
+					continue;
+				}
+				dtype.GetProperty(item.Name)?.SetValue(dataObject, value);
 			}
 			return dataObject;
 		}
@@ -139,11 +140,48 @@ namespace DoAnCoSo.Services
 		public IQueryable CastToList<TModel>(PagedResult result) where TModel : class
 		{
 			var pageResult = new List<TModel>();
-			foreach(var item in result.Queryable)
+			foreach (var item in result.Queryable)
 			{
 				pageResult.Add(CastTo<TModel>(item));
 			}
 			return pageResult.AsQueryable();
+		}
+
+		public async Task<bool> AddAsync<TModel>(TModel data) where TModel : class
+		{
+			try
+			{
+				await db.AddAsync<TModel>(data);
+				await db.SaveChangesAsync();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Logging.Logging.Write(ex.Message);
+				return false;
+			}
+		}
+
+		public async Task<bool> AddAsync<TTable, TModel>(TModel data)
+			where TTable : class where TModel : class
+		{
+			try
+			{
+				TTable model = this.CastTo<TTable>(data);
+				await db.AddAsync<TTable>(model);
+				await db.SaveChangesAsync();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Logging.Logging.Write(ex.Message);
+				return false;
+			}
+		}
+		public List<TTable> GetAll<TTable>() where TTable : class
+		{
+			return db.Set<TTable>().AsNoTracking()
+				.OrderBy("Id desc").ToList();
 		}
 		#endregion
 	}

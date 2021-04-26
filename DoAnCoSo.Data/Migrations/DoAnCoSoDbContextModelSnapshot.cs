@@ -65,7 +65,7 @@ namespace DoAnCoSo.Data.Migrations
 
                     b.HasIndex("IdHangSanXuat");
 
-                    b.ToTable("ChiTietSanPham");
+                    b.ToTable("ChiTietSanPhams");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.DanhMuc", b =>
@@ -143,6 +143,9 @@ namespace DoAnCoSo.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("ChiTietSanPhamId")
+                        .HasColumnType("int");
+
                     b.Property<string>("MaCSS")
                         .HasColumnType("nvarchar(max)");
 
@@ -151,22 +154,9 @@ namespace DoAnCoSo.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ChiTietSanPhamId");
+
                     b.ToTable("MauSacs");
-                });
-
-            modelBuilder.Entity("DoAnCoSo.DTOs.SanPham_MauSac", b =>
-                {
-                    b.Property<int>("IdMauSac")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdSanPham")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdMauSac", "IdSanPham");
-
-                    b.HasIndex("IdSanPham");
-
-                    b.ToTable("SanPham_MauSac");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.SanPham_ThongSoKyThuat", b =>
@@ -313,23 +303,11 @@ namespace DoAnCoSo.Data.Migrations
                     b.Navigation("ThuocSanPham");
                 });
 
-            modelBuilder.Entity("DoAnCoSo.DTOs.SanPham_MauSac", b =>
+            modelBuilder.Entity("DoAnCoSo.DTOs.MauSac", b =>
                 {
-                    b.HasOne("DoAnCoSo.DTOs.MauSac", "MauSac")
-                        .WithMany("SanPhamNavigation")
-                        .HasForeignKey("IdMauSac")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DoAnCoSo.DTOs.ChiTietSanPham", "SanPham")
+                    b.HasOne("DoAnCoSo.DTOs.ChiTietSanPham", null)
                         .WithMany("DanhSachMauSac")
-                        .HasForeignKey("IdSanPham")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MauSac");
-
-                    b.Navigation("SanPham");
+                        .HasForeignKey("ChiTietSanPhamId");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.SanPham_ThongSoKyThuat", b =>
@@ -366,11 +344,6 @@ namespace DoAnCoSo.Data.Migrations
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.HangSanXuat", b =>
-                {
-                    b.Navigation("SanPhamNavigation");
-                });
-
-            modelBuilder.Entity("DoAnCoSo.DTOs.MauSac", b =>
                 {
                     b.Navigation("SanPhamNavigation");
                 });

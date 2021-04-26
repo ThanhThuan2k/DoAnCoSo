@@ -15,7 +15,6 @@ namespace DoAnCoSo.DTOs
 			ThuocDanhMuc = new DanhMuc();
 			ThuocHangSanXuat = new HangSanXuat();
 			DanhSachAnhChiTiet = new List<HinhAnh>();
-			DanhSachMauSac = new List<SanPham_MauSac>();
 			DanhSachThongSo = new List<SanPham_ThongSoKyThuat>();
 		}
 
@@ -34,10 +33,10 @@ namespace DoAnCoSo.DTOs
 		public DanhMuc ThuocDanhMuc { get; set; }
 		public ICollection<HinhAnh> DanhSachAnhChiTiet { get; set; }
 		public float? GiaGocSanPham { get; set; }
-		public ICollection<SanPham_MauSac> DanhSachMauSac { get; set; }
 		public ICollection<SanPham_ThongSoKyThuat> DanhSachThongSo { get; set; }
 		public string TinhTrangMay { get; set; }
 		public string QuyCachDongHop { get; set; }
 		public string ThoiHanBaoHanh { get; set; }
+		public ICollection<MauSac> DanhSachMauSac { get; set; }
 	}
 }

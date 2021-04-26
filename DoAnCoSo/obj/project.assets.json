@@ -2037,6 +2037,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "DoAnCoSo.DTOs": "1.0.0",
+          "Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4",
           "PagedList.Core": "1.17.4",
@@ -2062,6 +2063,16 @@
         },
         "runtime": {
           "bin/placeholder/DoAnCoSo.DTOs.dll": {}
+        }
+      },
+      "Logging/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Logging.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Logging.dll": {}
         }
       }
     }
@@ -7260,12 +7271,18 @@
       "type": "project",
       "path": "../DoAnCoSo.DTOs/DoAnCoSo.DTOs.csproj",
       "msbuildProject": "../DoAnCoSo.DTOs/DoAnCoSo.DTOs.csproj"
+    },
+    "Logging/1.0.0": {
+      "type": "project",
+      "path": "../Logging/Logging.csproj",
+      "msbuildProject": "../Logging/Logging.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DoAnCoSo.DTOs >= 1.0.0",
       "DoAnCoSo.Data >= 1.0.0",
+      "Logging >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "System.Linq.Dynamic.Core >= 1.2.9"
@@ -7308,6 +7325,9 @@
             },
             "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj": {
               "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\DoAnCoSo.DTOs\\DoAnCoSo.DTOs.csproj"
+            },
+            "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj": {
+              "projectPath": "D:\\C#\\DoAnCoSo\\DoAnCoSo\\Logging\\Logging.csproj"
             }
           }
         }

@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DoAnCoSo.DTOs\DoAnCoSo.DTOs.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
   </ItemGroup>
 
 </Project>

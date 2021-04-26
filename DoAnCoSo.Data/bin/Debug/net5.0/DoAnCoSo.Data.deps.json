@@ -9,6 +9,7 @@
       "DoAnCoSo.Data/1.0.0": {
         "dependencies": {
           "DoAnCoSo.DTOs": "1.0.0",
+          "Logging": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.4",
@@ -1001,6 +1002,11 @@
         "runtime": {
           "DoAnCoSo.DTOs.dll": {}
         }
+      },
+      "Logging/1.0.0": {
+        "runtime": {
+          "Logging.dll": {}
+        }
       }
     }
   },
@@ -1711,6 +1717,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "DoAnCoSo.DTOs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
