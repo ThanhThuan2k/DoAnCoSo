@@ -30,7 +30,6 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		[Route("/admin")]
 		public IActionResult Home()
 		{
-			var x = User.Claims.Where(x => x.Type.ToLower().Contains("actor")).Select(x => x.Value).FirstOrDefault();
 			return View();
 		}
 

@@ -17,3 +17,11 @@ document.querySelector(".bootstrap-touchspin-down").addEventListener('click', fu
 document.querySelector(".bootstrap-touchspin-up").addEventListener('click', function () {
 	inputTag.value = numberWithCommas(parseInt(inputTag.value.replaceAll(',', '')) + 100000);
 });
+
+const Select = (sel, ele = document) => {
+	return ele.querySelector(sel);
+}
+
+const SelectAll = (sel, ele = document) => {
+	return ele.querySelectorAll(sel);
+}
