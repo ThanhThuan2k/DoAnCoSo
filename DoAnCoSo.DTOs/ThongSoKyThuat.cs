@@ -11,12 +11,12 @@ namespace DoAnCoSo.DTOs
 	{
 		public ThongSoKyThuat()
 		{
-			SanPhamNavigation = new List<SanPham_ThongSoKyThuat>();
+			SanPhamNavigation = new List<ChiTietSanPham>();
 		}
 		[Key]
 		public int Id { get; set; }
 		public string TenThongSo { get; set; }
 		public string MoTa { get; set;  }
-		public ICollection<SanPham_ThongSoKyThuat> SanPhamNavigation { get; set; }
+		public ICollection<ChiTietSanPham> SanPhamNavigation { get; set; }
 	}
 }

@@ -16,7 +16,6 @@ namespace DoAnCoSo.Data
 		public DbSet<MauSac> MauSacs { get; set; }
 		public DbSet<ChiTietSanPham> ChiTietSanPhams { get; set; }
 		public DbSet<ThongSoKyThuat> ThongSoKyThuats { get; set; }
-		public DbSet<SanPham_ThongSoKyThuat> SanPham_ThongSoKyThuats { get; set; }
 		public DbSet<TaiKhoanAdmin> TaiKhoanAdmins { get; set; }
 		public DbSet<ThongTinKhachHang> ThongTinKhachHangs { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -33,11 +32,7 @@ namespace DoAnCoSo.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<SanPham_ThongSoKyThuat>().HasKey(table => new
-			{
-				table.IdSanPham,
-				table.IdThongSoKyThuat
-			});
+
 		}
 	}
 }

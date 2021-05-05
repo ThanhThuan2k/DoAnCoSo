@@ -9,15 +9,10 @@ namespace DoAnCoSo.DTOs
 {
 	public class HangSanXuat
 	{
-		public HangSanXuat()
-		{
-			SanPhamNavigation = new List<ChiTietSanPham>();
-		}
-
 		[Key]
 		public int Id { get; set; }
 		public string TenHang { get; set; }
 		public string AnhDaiDien { get; set; }
-		public ICollection<ChiTietSanPham> SanPhamNavigation { get; set; }
+		public ICollection<ChiTietSanPham> ChiTietSanPhamNavigation { get; set; }
 	}
 }

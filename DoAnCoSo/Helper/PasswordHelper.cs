@@ -28,6 +28,20 @@ namespace DoAnCoSo.Helper
             return result;
         }
 
+        public static string RandomNumber(int min, int max)
+        {
+            const string mailCOLLECTION_CHARS = "0123456789";
+            Random rand = new Random();
+            char[] salt = new char[rand.Next(min, max)];
+            for (int i = 0; i < salt.Length; i++)
+            {
+                salt[i] = mailCOLLECTION_CHARS[rand.Next(mailCOLLECTION_CHARS.Length)];
+            }
+
+            string result = new String(salt);
+            return result;
+        }
+
         /// <summary>
         /// Mã hóa mật khẩu theo phương pháp SHA512
         /// </summary>
