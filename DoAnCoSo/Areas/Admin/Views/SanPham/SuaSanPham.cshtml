@@ -1,0 +1,155 @@
+﻿@model DoAnCoSo.Areas.Admin.ViewModel.SanPham.ThemSanPhamJsonModel
+@{
+	ViewData["Title"] = "SuaSanPham";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+section css{
+<link href="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+<link href="~/Admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+<link href="~/lib/summernote/summernote.min.css" rel="stylesheet" />
+}
+
+<form asp-action="ThemSanPham" asp-controller="SanPham" asp-area="Admin" method="post" enctype="multipart/form-data">
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label">Tên sản phẩm</label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" name="TenSanPham" type="text">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label">Tình trạng máy</label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" name="TinhTrangMay" type="text">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label">Thời hạn bảo hành</label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" name="ThoiHanBaoHanh" type="text">
+		</div>
+	</div>
+	<div class="form-group">
+		<textarea class="ThongTinChiTiet" name="ThongTinChiTiet" id="summernote">
+
+		</textarea>
+	</div>
+	<div class="col-sm-12 col-md-12 pd-0">
+		<div class="form-group">
+			<h5 class="h5">Giá gốc sản phẩm</h5>
+			<div class="input-group bootstrap-touchspin bootstrap-touchspin-injected mt-2">
+				<span class="input-group-btn input-group-prepend">
+					<button class="btn btn-primary bootstrap-touchspin-down" type="button">
+						-
+					</button>
+				</span>
+				<span class="input-group-addon bootstrap-touchspin-prefix input-group-prepend">
+					<span class="input-group-text">
+						VND
+					</span>
+				</span>
+				<input name="GiaGocSanPham" id="GiaGocSanPham" type="text" value="1,000,000" class="form-control">
+				<span class="input-group-btn input-group-append">
+					<button class="btn btn-primary bootstrap-touchspin-up" type="button">
+						+
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	@*Quy cách đóng hộp*@
+	<div class="form-group">
+		<div class="mb-30">
+			<h5 class="h5">Quy cách đóng hộp</h5>
+			<input type="text" value="1 điện thoại" name="QuyCachDongHop" data-role="tagsinput" style="display: none;">
+		</div>
+	</div>
+
+	@*Hãng sản xuất*@
+	<div class="form-group row">
+		<div class="col-md-6" data-select2-id="8">
+			<div class="form-group" data-select2-id="7">
+				<select name="IdHangSanXuat" class="hang-san-xuat custom-select2 form-control select2-hidden-accessible" style="width: 100%; height: 45px;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+					<option value="0">Hãng sản xuất</option>
+					@foreach (var item in ViewBag.HangSanXuat)
+					{
+						<option value="@item.Id">@item.TenHang</option>
+					}
+				</select>
+			</div>
+		</div>
+		<div class="col-md-6" data-select2-id="8">
+			<div class="form-group" data-select2-id="7">
+				<select name="IdDanhMuc" class="danh-muc custom-select2 form-control select2-hidden-accessible" style="width: 100%; height: 38px;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+					<option value="0">Danh mục</option>
+					@foreach (var item in ViewBag.DanhMuc)
+					{
+						<option value="@item.Id">@item.TenDanhMuc</option>
+					}
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		@foreach (var item in ViewBag.ThongSoKyThuat)
+		{
+			<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+				<h5 class="h5">@item.TenThongSo</h5>
+				<div class="form-group" data-select2-id="7">
+					<select name="ThongSoKyThuat[]" class="thong-so-ky-thuat custom-select2 form-control select2-hidden-accessible" name="@item.TenThongSo" style="width: 100%; height: 45px;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+						<option value="0">Không</option>
+						@foreach (var child in item.ChiTietMoTa)
+						{
+							<option value="@child.Id">@child.MoTa</option>
+						}
+					</select>
+				</div>
+			</div>
+		}
+	</div>
+
+	@*Ảnh đại diện*@
+	<div class="form-group row mb-2">
+		<input type="file" name="AnhDaiDien" accept="image/*" />
+	</div>
+
+	@*Ảnh chi tiết*@
+	<div class="form-group row">
+		<input type="file" accept="image/*" multiple name="DanhSachAnhChiTiet" />
+	</div>
+
+	<div class="row">
+		<button type="submit" class="btn btn-primary">Thêm</button>
+	</div>
+</form>
+
+<!-- Confirm Modal -->
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Xác nhận thông tin</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section js{
+	<script src="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<script src="~/lib/summernote/summernote.min.js"></script>
+	<script src="~/Admin/js/Admin/ThemSanPham.js"></script>
+}

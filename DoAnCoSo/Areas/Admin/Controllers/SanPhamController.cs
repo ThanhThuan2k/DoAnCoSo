@@ -1,6 +1,7 @@
 ﻿using DoAnCoSo.Areas.Admin.ViewModel.SanPham;
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
+using DoAnCoSo.Helper;
 using DoAnCoSo.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,12 +19,14 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 	{
 		private readonly IWebHostEnvironment _host;
 		private readonly ServiceBase services;
+		private readonly SanPhamRepository sanPhamRepo;
 		private readonly ThongSoKyThuatRepository thongSoRepo;
 
 		public SanPhamController(IWebHostEnvironment host)
 		{
 			_host = host;
 			services = new ServiceBase();
+			sanPhamRepo = new SanPhamRepository();
 			thongSoRepo = new ThongSoKyThuatRepository();
 		}
 		public IActionResult Index()
@@ -33,7 +36,8 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 
 		public JsonResult DanhSachSanPham(int? page, int? size)
 		{
-			var model = services.GetPagedList<ChiTietSanPham, DanhSachSanPhamJsonModel>(page??1, size??10);
+			var x = sanPhamRepo.getSanPham(10);
+			var model = services.GetPagedList<ChiTietSanPham, DanhSachSanPhamJsonModel>(page ?? 1, size ?? 10);
 			return Json(model);
 		}
 
@@ -50,30 +54,53 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		public async Task<IActionResult> ThemSanPham(ThemSanPhamJsonModel data)
 		{
 			ChiTietSanPham chiTietSanPham = services.CastTo<ChiTietSanPham>(data);
-			if(data.anhDaiDien != null)
+			chiTietSanPham.MaSanPham = PasswordHelper.CreateSalt(5, 7);
+			foreach (int item in data.ThongSoKyThuat)
+			{
+				chiTietSanPham.DanhSachThongSo.Add(sanPhamRepo.TimThongSo(item));
+			}
+
+			chiTietSanPham.DanhMuc = sanPhamRepo.TimDanhMuc(data.IdDanhMuc ?? 0);
+			chiTietSanPham.HangSanXuat = sanPhamRepo.TimHangSanXuat(data.IdHangSanXuat ?? 0);
+
+			if (data.anhDaiDien != null)
 			{
 				string anhDaiDienPath = UploadImgAndReturnPath(data.anhDaiDien, "/Images/SanPham/");
+				anhDaiDienPath = anhDaiDienPath.Split('/').Last();
+				chiTietSanPham.AnhDaiDien = anhDaiDienPath;
 			}
-			if(data.danhSachAnhChiTiet.Count() > 0)
+
+			if (data.danhSachAnhChiTiet.Count() > 0)
 			{
-				foreach(IFormFile item in data.danhSachAnhChiTiet)
+				foreach (IFormFile item in data.danhSachAnhChiTiet)
 				{
 					string tempPath = UploadImgAndReturnPath(item, "/Images/SanPham/");
-					chiTietSanPham.DanhSachAnhChiTiet.Add(new HinhAnh() {
+					tempPath = tempPath.Split('/').Last();
+					chiTietSanPham.DanhSachAnhChiTiet.Add(new HinhAnh()
+					{
 						DuongDanAnh = tempPath
 					});
 				}
 			}
-			
-			//bool isSuccess = await services.AddAsync<ChiTietSanPham, ThemSanPhamJsonModel>(data);
-			//if (isSuccess == true)
-			//{
-			//	return RedirectToAction("Index", "SanPham");
-			//}
-			//else
-			//{
-			//	return View(data);
-			//}
+
+			bool isSuccess = await sanPhamRepo.Add(chiTietSanPham);
+			if (isSuccess)
+			{
+				return RedirectToAction("Index", "SanPham");
+			}
+			else
+			{
+				return RedirectToAction("ThemSanPham", "SanPham");
+			}
+		}
+
+		public async Task<IActionResult> SuaSanPham(int id)
+		{
+			ChiTietSanPham sanPham = await sanPhamRepo.GetSanPham(id);
+			if (sanPham != null)
+			{
+				return View(sanPham);
+			}
 			return View();
 		}
 
@@ -90,7 +117,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			}
 			var relativePath = childFolder + filename;
 			var path = root + relativePath;
-			var x = new FileStream(path, FileMode.Create); 
+			var x = new FileStream(path, FileMode.Create);
 			file.CopyTo(x);
 			x.Dispose();
 			GC.Collect();

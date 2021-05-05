@@ -94,13 +94,13 @@ namespace DoAnCoSo.Data.Repository
 				DanhMuc danhMuc = await db.DanhMucs.FindAsync(id);
 				if(danhMuc != null)
 				{
-					var sanPhamList = db.ChiTietSanPhams.Where(x => x.IdDanhMuc == id)
+					var sanPhamList = db.ChiTietSanPhams.Where(x => x.DanhMuc == danhMuc)
 						.ToList();
 					if(sanPhamList.Count() > 0)
 					{
 						foreach(var item in sanPhamList)
 						{
-							item.IdDanhMuc = null;
+							item.DanhMuc = null;
 						}
 					}
 					db.DanhMucs.Remove(danhMuc);

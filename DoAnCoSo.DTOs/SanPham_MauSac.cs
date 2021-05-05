@@ -10,12 +10,7 @@ namespace DoAnCoSo.DTOs
 {
 	public class SanPham_MauSac
 	{
-		public int IdSanPham { get; set; }
-		[ForeignKey("IdSanPham")]
 		public ChiTietSanPham SanPham { get; set; }
-
-		public int IdMauSac { get; set; }
-		[ForeignKey("IdMauSac")]
 		public MauSac MauSac { get; set; }
 	}
 }

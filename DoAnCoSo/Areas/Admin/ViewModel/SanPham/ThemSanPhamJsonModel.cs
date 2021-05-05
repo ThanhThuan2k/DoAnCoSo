@@ -14,17 +14,12 @@ namespace DoAnCoSo.Areas.Admin.ViewModel.SanPham
 
 		public string ThongTinChiTiet { get; set; }
 
-		public float GiaGocSanPham { get; set; }
-
+		public double GiaGocSanPham { get; set; }
 		public string TinhTrangMay { get; set; }
-
 		public string QuyCachDongHop { get; set; }
-		public List<int> MauSac { get; set; }
-
 		public string ThoiHanBaoHanh { get; set; }
-
-		public int? HangSanXuat { get; set; }
-		public int? DanhMuc { get; set; }
+		public int? IdHangSanXuat { get; set; }
+		public int? IdDanhMuc { get; set; }
 		public List<int> ThongSoKyThuat { get; set; }
 		public IFormFile anhDaiDien { get; set; }
 		public List<IFormFile> danhSachAnhChiTiet { get; set; }

@@ -12,7 +12,7 @@ namespace DoAnCoSo.Areas.Admin.ViewModel.SanPham
 		public string TenSanPham { get; set; }
 		public string AnhDaiDien { get; set; }
 		public int? SoLuongTonKho { get; set; }
-		public float? GiaGocSanPham { get; set; }
+		public double? GiaGocSanPham { get; set; }
 		public string TinhTrangMay { get; set; }
 	}
 }

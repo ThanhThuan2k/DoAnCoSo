@@ -9,11 +9,10 @@ namespace DoAnCoSo.DTOs
 {
 	public class SanPham_ThongSoKyThuat
 	{
-		public int IdSanPham { get; set; }
-		[ForeignKey("IdSanPham")]
+		public int SanPhamId { get; set; }
 		public ChiTietSanPham SanPham { get; set; }
-		public int IdThongSoKyThuat { get; set; }
-		[ForeignKey("IdThongSoKyThuat")]
+
+		public int ThongSoKyThuatId { get; set; }
 		public ThongSoKyThuat ThongSoKyThuat { get; set; }
 	}
 }

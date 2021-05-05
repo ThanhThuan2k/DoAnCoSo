@@ -12,10 +12,10 @@ namespace DoAnCoSo.DTOs
 	{
 		public ChiTietSanPham()
 		{
-			ThuocDanhMuc = new DanhMuc();
-			ThuocHangSanXuat = new HangSanXuat();
+			DanhMuc = new DanhMuc();
+			HangSanXuat = new HangSanXuat();
 			DanhSachAnhChiTiet = new List<HinhAnh>();
-			DanhSachThongSo = new List<SanPham_ThongSoKyThuat>();
+			DanhSachThongSo = new List<ThongSoKyThuat>();
 		}
 
 		[Key]
@@ -25,18 +25,13 @@ namespace DoAnCoSo.DTOs
 		public string AnhDaiDien { get; set; }
 		public string ThongTinChiTiet { get; set; }
 		public int? SoLuongTonKho { get; set; }
-		public int? IdHangSanXuat { get; set; }
-		[ForeignKey("IdHangSanXuat")]
-		public HangSanXuat ThuocHangSanXuat { get; set; }
-		public int? IdDanhMuc { get; set; }
-		[ForeignKey("IdDanhMuc")]
-		public DanhMuc ThuocDanhMuc { get; set; }
+		public HangSanXuat HangSanXuat { get; set; }
+		public DanhMuc DanhMuc { get; set; }
 		public ICollection<HinhAnh> DanhSachAnhChiTiet { get; set; }
-		public float? GiaGocSanPham { get; set; }
-		public ICollection<SanPham_ThongSoKyThuat> DanhSachThongSo { get; set; }
+		public double? GiaGocSanPham { get; set; }
+		public ICollection<ThongSoKyThuat> DanhSachThongSo { get; set; }
 		public string TinhTrangMay { get; set; }
 		public string QuyCachDongHop { get; set; }
 		public string ThoiHanBaoHanh { get; set; }
-		public ICollection<MauSac> DanhSachMauSac { get; set; }
 	}
 }

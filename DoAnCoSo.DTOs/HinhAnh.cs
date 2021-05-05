@@ -14,7 +14,6 @@ namespace DoAnCoSo.DTOs
 		public string DuongDanAnh { get; set; }
 		public string NoiDungMoTaAnh { get; set; }
 		public string TenThayThe { get; set; }
-		public int IdSanPham { get; set; }
 		public ChiTietSanPham ThuocSanPham { get; set; }
 	}
 }
