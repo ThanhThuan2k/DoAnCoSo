@@ -1,0 +1,13 @@
+﻿@model ICollection<DoAnCoSo.DTOs.DanhMuc>
+
+<ul class="evo-main-cate">
+	@foreach (var item in Model)
+	{
+		<li class="menu-item-count">
+			<a href="#" title="@item.TenDanhMuc">
+				<img class="lazy" src="/Images/DanhMuc/@item.Icon"
+					 alt="@item.TenDanhMuc" /> @item.TenDanhMuc
+				</a>
+			</li>
+		}
+</ul>

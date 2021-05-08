@@ -107,12 +107,22 @@
 			<div class="dropdown">
 				<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 					<span class="user-icon">
-						@{ string imagePath = User.Claims
-							 .Where(x => x.Type.ToLower().Contains("uri"))
-							 .Select(x => x.Value).First(); }
+						@{
+							string imagePath = "";
+							string hoTen = "";
+							if (User.Identity.IsAuthenticated)
+							{
+								imagePath = User.Claims
+															 .Where(x => x.Type.ToLower().Contains("uri"))
+															 .Select(x => x.Value).First();
+								hoTen = User.Claims
+															 .Where(x => x.Type.ToLower().Contains("actor"))
+															 .Select(x => x.Value).First();
+							}
+						}
 						<img src="~/Images/Admin/@imagePath" alt="">
 					</span>
-					<span class="user-name">@User.Identity.Name</span>
+					<span class="user-name">@hoTen</span>
 				</a>
 				<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 					<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>

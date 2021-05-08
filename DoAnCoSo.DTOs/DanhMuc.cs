@@ -9,6 +9,10 @@ namespace DoAnCoSo.DTOs
 {
 	public class DanhMuc
 	{
+		public DanhMuc()
+		{
+			ChiTietSanPhamNavigation = new HashSet<ChiTietSanPham>();
+		}
 		[Key]
 		public int Id { get; set; }
 		public string TenDanhMuc { get; set; }

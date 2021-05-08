@@ -34,10 +34,9 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			return View();
 		}
 
-		public JsonResult DanhSachSanPham(int? page, int? size)
+		public async Task<JsonResult> DanhSachSanPham()
 		{
-			var x = sanPhamRepo.getSanPham(10);
-			var model = services.GetPagedList<ChiTietSanPham, DanhSachSanPhamJsonModel>(page ?? 1, size ?? 10);
+			List<ChiTietSanPham> model = await sanPhamRepo.AllSanPham();
 			return Json(model);
 		}
 
@@ -57,6 +56,10 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			chiTietSanPham.MaSanPham = PasswordHelper.CreateSalt(5, 7);
 			foreach (int item in data.ThongSoKyThuat)
 			{
+				if(item == 0)
+				{
+					continue;
+				}
 				chiTietSanPham.DanhSachThongSo.Add(sanPhamRepo.TimThongSo(item));
 			}
 
@@ -104,6 +107,19 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 			return View();
 		}
 
+		[HttpPost]
+		public async Task<JsonResult> XoaSanPham([FromBody]XacNhanXoaJsonModel data)
+		{
+			bool isSuccess = await sanPhamRepo.Submit(data.username, PasswordHelper.EncryptSHA512(data.password, data.username));
+			if(isSuccess)
+			{
+				string hoTen = await sanPhamRepo.GetHoTen(data.username);
+				await sanPhamRepo.XoaSanPham(data.Id, hoTen);
+				return Json(true);
+			}
+			return Json(false);
+		}
+		
 		string UploadImgAndReturnPath(IFormFile file, string childFolder = "/Images/", bool saveInWwwRoot = true)
 		{
 			var y = _host.WebRootPath;

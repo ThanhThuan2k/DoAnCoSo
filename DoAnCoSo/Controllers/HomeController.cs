@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DoAnCoSo.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +10,12 @@ namespace DoAnCoSo.Controllers
 {
 	public class HomeController : Controller
 	{
-		public IActionResult Index()
+		DoAnCoSoDbContext data;
+	public	HomeController()
 		{
-			return View();
+			data = new DoAnCoSoDbContext();
 		}
-
-		public IActionResult Index2()
+		public IActionResult Index()
 		{
 			return View();
 		}

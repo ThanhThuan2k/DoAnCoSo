@@ -1,0 +1,45 @@
+﻿@model ICollection<DoAnCoSo.Data.ModelHelper.DanhMucCountClientModel>
+@{
+	var first = Model.First();
+}
+
+<section class="awe-section-3">
+	<div class="container evo_block-product">
+		<div class="evo-block-product-big evo-block-cate-new">
+			<div class="featured--content">
+				<div class="featured__first">
+					<a href="/dien-thoai" title="@first.TenHang" class="ps-product--vertical">
+						<div class="evo-new-has-img">
+							<img style="opacity: 1; background: none;" src="/Images/HangSanXuat/@first.AnhDaiDien"
+								 alt="@first.TenHang" class="lazy img-responsive mx-auto d-block" />
+						</div>
+						<div class="ps-product__content">
+							<div class="ps-product__name">@first.TenHang</div>
+							<p class="ps-product__quantity">@first.SanPhamCount sản phẩm</p>
+						</div>
+					</a>
+				</div>
+				<div class="featured__group">
+					<div class="row m-0">
+						@for (int i = 1; i < Model.Count - 1; i++)
+						{
+							var item = Model.ElementAt(i);
+							<div class="col-3 p-0">
+								<a href="#" title="@item.TenHang" class="ps-product--vertical">
+									<div class="evo-new-has-img">
+										<img style="opacity: 1; background: none;" src="/Images/HangSanXuat/@item.AnhDaiDien"
+											 alt="@item.TenHang" class="lazy img-responsive mx-auto d-block" />
+									</div>
+									<div class="ps-product__content">
+										<div class="ps-product__name">@item.TenHang</div>
+										<p class="ps-product__quantity">@item.SanPhamCount sản phẩm</p>
+									</div>
+								</a>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,51 @@
+﻿@model ICollection<DoAnCoSo.Data.ModelHelper.SanPhamReviewClientModel>
+
+<section class="awe-section-4">
+	<div class="container evo_block-product evo_block-product-s">
+		<div class="section_product_1">
+			<div class="flash-sale-title text-center">
+				<a class="sport-titles" href="iphone-12-series" title="Sản phẩm mới nhất"><span>Sản phẩm mới nhất</span></a>
+			</div>
+			<div class="evo-owl-product swiper-container">
+				<div class="swiper-wrapper">
+					@foreach (var item in Model)
+					{
+						<div class="swiper-slide">
+							<div class="evo-product-block-item">
+								<a href="#" title="@item.TenSanPham" class="product__box-image">
+									<img style="opacity: 1;" class="lazy" src="/Images/SanPham/@item.AnhDaiDien"
+										 alt="@item.TenSanPham" />
+									@if (item.GiaKhuyenMai != 0)
+									{
+										<span class="sales">
+											<i class="icon-flash2"></i> Giảm
+											@item.GiaKhuyenMai?.ToString("#,###")₫
+										</span>
+									}
+								</a>
+								<a href="#" title="@item.TenSanPham" class="product__box-name">Điện thoại @String.Format("{0} ({1}|{2})", item.TenSanPham, item.RAM == null ? item.RAM = "Đang cập nhật" : item.RAM.Replace(" ", ""), item.DungLuong == null ? item.DungLuong = "Đang cập nhật" : item.DungLuong.Replace(" ", ""))</a>
+								<div class="product__box-price">
+									<span class="price">@item.GiaHienTai?.ToString("#,###")₫</span>
+									@if (item.GiaKhuyenMai != 0)
+									{
+										<span class="old-price">@item.GiaGoc.ToString("#,###")₫</span>
+									}
+								</div>
+								<div class="evo-tag">
+									<span>Trả góp 0% lãi suất</span>
+									<span>Bảo hành 1 đổi 1</span>
+								</div>
+								<div class="product__box-btn">
+									<a href="#" class="btn-buy" title="Chi tiết">Chi tiết</a>
+									<a href="javascript:void(0)" title="Yêu thích" data-handle="@item.TenSanPham" class="btn-compare js-btn-wishlist">Yêu thích</a>
+								</div>
+							</div>
+						</div>
+					}
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</div>
+	</div>
+</section>

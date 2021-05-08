@@ -33,5 +33,10 @@ namespace DoAnCoSo.DTOs
 		public string TinhTrangMay { get; set; }
 		public string QuyCachDongHop { get; set; }
 		public string ThoiHanBaoHanh { get; set; }
+		public int? LuotXem { get; set; }
+		public int? LuotThich { get; set; }
+		public DateTime? NgayXoa { get; set; }
+		public string NguoiXoa { get; set; }
+		public double? GiamGia { get; set; }
 	}
 }

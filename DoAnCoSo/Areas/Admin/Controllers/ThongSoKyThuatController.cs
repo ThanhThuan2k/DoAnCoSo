@@ -1,4 +1,5 @@
 ﻿using DoAnCoSo.Areas.Admin.ViewModel.ThongSoKyThuat;
+using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
 using DoAnCoSo.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +13,12 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class ThongSoKyThuatController : Controller
 	{
+		private readonly ThongSoKyThuatRepository thongSoRepo;
 		private readonly ServiceBase services;
 		public ThongSoKyThuatController()
 		{
 			services = new ServiceBase();
+			thongSoRepo = new ThongSoKyThuatRepository();
 		}
 
 		public IActionResult Index()
@@ -29,14 +32,22 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		}
 
 		[HttpPost]
-		public async Task<JsonResult> ThemMoi([FromBody]ThongSoKyThuatJsonModel model)
+		public async Task<JsonResult> ThemMoi([FromBody] ThongSoKyThuatJsonModel model)
 		{
-			bool isSucess = await services.AddAsync<ThongSoKyThuat, ThongSoKyThuatJsonModel>(model);
-			if(isSucess)
+			bool isExist = await thongSoRepo.IsExist(model.TenThongSo.Trim(), model.MoTa.Trim());
+			if (isExist)
 			{
-				return Json(true);
+				return Json(false);
 			}
-			return Json(false);
+			else
+			{
+				bool isSucess = await services.AddAsync<ThongSoKyThuat, ThongSoKyThuatJsonModel>(model);
+				if (isSucess)
+				{
+					return Json(true);
+				}
+				return Json(false);
+			}
 		}
 	}
 }

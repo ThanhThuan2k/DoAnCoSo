@@ -50,10 +50,29 @@ namespace DoAnCoSo.Data.Migrations
                     b.Property<double?>("GiaGocSanPham")
                         .HasColumnType("float");
 
+                    b.Property<double?>("GiamGia")
+                        .HasColumnType("float");
+
                     b.Property<int?>("HangSanXuatId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("LuotThich")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<int?>("LuotXem")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
                     b.Property<string>("MaSanPham")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NgayXoa")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NguoiXoa")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("QuyCachDongHop")
