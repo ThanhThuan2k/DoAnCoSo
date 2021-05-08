@@ -43,7 +43,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 				await hangSanXuatRepo.Create(tenHang, imageName);
 				return RedirectToAction("Index");
 			}
-			catch (Exception ex)
+			catch
 			{
 				return RedirectToAction("Index");
 			}

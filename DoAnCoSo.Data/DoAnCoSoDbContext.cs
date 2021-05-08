@@ -32,7 +32,12 @@ namespace DoAnCoSo.Data
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-
+			modelBuilder.Entity<ChiTietSanPham>()
+				.Property(x => x.LuotThich)
+				.HasDefaultValue(0);
+			modelBuilder.Entity<ChiTietSanPham>()
+				.Property(x => x.LuotXem)
+				.HasDefaultValue(0);
 		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using DoAnCoSo.Data.JsonModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace DoAnCoSo.Data.Repository
 				thongSoJsonModelList.Add(createNew);
 			}
 			return thongSoJsonModelList;
+		}
+
+		public async Task<bool> IsExist(string tenThongSo, string moTa)
+		{
+			return await db.ThongSoKyThuats.AnyAsync(x => x.TenThongSo.ToLower().Trim() == tenThongSo.ToLower().Trim()
+			&& x.MoTa.ToLower().Trim() == moTa.ToLower().Trim());
 		}
 	}
 }

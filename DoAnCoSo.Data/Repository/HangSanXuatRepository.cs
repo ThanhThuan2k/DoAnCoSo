@@ -1,4 +1,6 @@
-﻿using DoAnCoSo.DTOs;
+﻿using DoAnCoSo.Data.ModelHelper;
+using DoAnCoSo.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +74,47 @@ namespace DoAnCoSo.Data.Repository
 			{
 				return false;
 			}
+		}
+
+		public async Task<List<DanhSachHangSanXuatCollectionClientModel>> GetDanhSachDanhMucCollection()
+		{
+			var model = await db.HangSanXuats.AsNoTracking()
+				.OrderByDescending(x => x.ChiTietSanPhamNavigation.Count)
+				.Select(x => new DanhSachHangSanXuatCollectionClientModel()
+				{
+					Id = x.Id,
+					AnhDaiDien = x.AnhDaiDien,
+					TenHangSanXuat = x.TenHang
+				})
+				.ToListAsync();
+			return model;
+		}
+
+		public async Task<List<SanPhamReviewClientModel>> SanPhamThuocHang(int id)
+		{
+			var model = await db.HangSanXuats
+				.Where(x => x.Id == id)
+				.SelectMany(x => x.ChiTietSanPhamNavigation)
+				.Select(x => new SanPhamReviewClientModel()
+				{
+					Id = x.Id,
+					AnhDaiDien = x.AnhDaiDien,
+					TenSanPham = x.TenSanPham,
+					GiaKhuyenMai = x.GiamGia??0,
+					GiaGoc = x.GiaGocSanPham ?? 0,
+					RAM = x.DanhSachThongSo.Where(x => x.TenThongSo == "RAM")
+					.Select(x => x.MoTa).FirstOrDefault(),
+					DungLuong = x.DanhSachThongSo.Where(x => x.TenThongSo == "Dung lượng")
+					.Select(x => x.MoTa).FirstOrDefault()
+				})
+				.OrderBy(x => x.Id)
+				.ToListAsync();
+			foreach(var item in model)
+			{
+				item.GiaHienTai = item.GiaGoc - item.GiaKhuyenMai;
+			}
+
+			return model;
 		}
 	}
 }

@@ -4,7 +4,7 @@
 	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-@section css{ 
+@section css{
 	<link href="~/Admin/css/NotificationModal.css" rel="stylesheet" />
 }
 
@@ -33,6 +33,35 @@
 	Không có dữ liệu
 </div>
 
-@section js{ 
+<!-- Modal delete submit -->
+<div class="modal fade" id="sumbit-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Xác nhận xóa</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="delete-submit">
+					<input type="hidden" class="id" />
+					<div class="form-group">
+						<input type="text" placeholder="Username" class="form-control username" />
+					</div>
+					<div class="form-group">
+						<input type="password" placeholder="Password" class="form-control password" />
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+				<button type="button" class="btn btn-primary submit-button">Xác nhận</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section js{
 	<script src="~/Admin/js/SanPham/SanPham.js"></script>
 }

@@ -47,9 +47,10 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 						string name = await loginRepository.getHoTen(model.username);
 						var claims = new List<Claim>
 						{
-							new Claim(ClaimTypes.Name, name),
+							new Claim(ClaimTypes.Name, model.username),
 							new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin"),
-							new Claim(ClaimTypes.Uri, imagePath)
+							new Claim(ClaimTypes.Uri, imagePath),
+							new Claim(ClaimTypes.Actor, name)
 						};
 						var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 

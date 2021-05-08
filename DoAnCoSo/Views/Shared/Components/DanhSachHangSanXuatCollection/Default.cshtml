@@ -1,0 +1,18 @@
+﻿@model ICollection<DoAnCoSo.Data.ModelHelper.DanhSachHangSanXuatCollectionClientModel>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+	<div class="shadow-sm margin-bottom-10 evo-list-accessories">
+		@foreach (var item in Model)
+		{
+			<div class="col8 col-border">
+				<a class="search-item search-item-hang-san-xuat" data-id="@item.Id" title="@item.TenHangSanXuat">
+					<div class="keyword-img">
+						<img style="opacity: 1; background: none;" src="/Images/HangSanXuat/@item.AnhDaiDien"
+							 alt="@item.TenHangSanXuat" class="lazy img-responsive mx-auto d-block" />
+					</div>
+					<div class="keyword-info-title">@item.TenHangSanXuat</div>
+				</a>
+			</div>
+		}
+	</div>
+</div>
