@@ -14,8 +14,13 @@ namespace DoAnCoSo.Controllers
 		{
 			hangSanXuatRepo = new HangSanXuatRepository();
 		}
-		public IActionResult Index()
+		public IActionResult Index(int id = 0)
 		{
+			ViewBag.CallJS = "";
+			if(id != 0)
+			{
+				ViewBag.CallJS = "<script>alert('OK');</script>";
+			}
 			return View();
 		}
 

@@ -5,7 +5,7 @@
 	{
 		<div class="col-lg-15 col-md-15 col-sm-4 col-5">
 			<div class="evo-product-block-item">
-				<a href="#" title="@item.TenSanPham" class="product__box-image">
+				<a href="/chitietsanpham/@item.Id" title="@item.TenSanPham" class="product__box-image">
 					<img style="opacity: 1;" class="lazy" src="/Images/SanPham/@item.AnhDaiDien"
 						 alt="@item.TenSanPham" />
 					@if (item.GiaKhuyenMai != 0)
@@ -16,7 +16,7 @@
 						</span>
 					}
 				</a>
-				<a href="#" title="@item.TenSanPham" class="product__box-name">Điện thoại @String.Format("{0} ({1}|{2})", item.TenSanPham, item.RAM == null ? "Đang cập nhật" : item.RAM.Replace(" ", ""), item.DungLuong == null ? "Đang cập nhật" : item.DungLuong.Replace(" ", ""))</a>
+				<a href="/chitietsanpham/@item.Id" title="@item.TenSanPham" class="product__box-name">Điện thoại @String.Format("{0} ({1}|{2})", item.TenSanPham, item.RAM == null ? "Đang cập nhật" : item.RAM.Replace(" ", ""), item.DungLuong == null ? "Đang cập nhật" : item.DungLuong.Replace(" ", ""))</a>
 				<div class="product__box-price">
 					<span class="price">@item.GiaHienTai?.ToString("#,###")₫</span>
 					@if (item.GiaKhuyenMai != 0)
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<div class="product__box-btn">
-					<a href="#" class="btn-buy" title="Chi tiết">Chi tiết</a>
+					<a href="/chitietsanpham/@item.Id" class="btn-buy" title="Chi tiết">Chi tiết</a>
 					<a href="#" title="Yêu thích" data-handle="iphone-12-pro-max-256gb-chinh-hang-vn-a" class="btn-compare js-btn-wishlist">Yêu thích</a>
 				</div>
 			</div>

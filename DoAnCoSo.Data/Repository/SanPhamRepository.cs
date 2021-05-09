@@ -231,5 +231,30 @@ namespace DoAnCoSo.Data.Repository
 
 			return model;
 		}
+
+		public async Task<ChiTietSanPhamClientModel> ChiTietSanPham(int id)
+		{
+			var model = await db.ChiTietSanPhams
+				.AsNoTracking()
+				.Where(x => x.Id == id)
+				.Select(x => new ChiTietSanPhamClientModel()
+				{
+					Id = x.Id,
+					TenSanPham = x.TenSanPham,
+					ThuocThuongHieu = x.HangSanXuat,
+					MaSanPham = x.MaSanPham,
+					GiaGoc = x.GiaGocSanPham ?? 0,
+					GiaKhuyenMai = x.GiamGia ?? 0,
+					QuyCachDongHop = x.QuyCachDongHop,
+					ThoiHanBaoHanh = x.ThoiHanBaoHanh,
+					AnhDaiDien = x.AnhDaiDien,
+					DanhSachAnhChiTiet = x.DanhSachAnhChiTiet.ToList(),
+					ThongTinChiTiet = x.ThongTinChiTiet,
+					DanhSachThongSoKyThuat = x.DanhSachThongSo.ToList(),
+					ThuocDanhMuc = x.DanhMuc
+				})
+				.SingleOrDefaultAsync();
+			return model;
+		}
 	}
 }

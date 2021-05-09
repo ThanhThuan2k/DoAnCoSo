@@ -95,6 +95,7 @@ namespace DoAnCoSo.Data.Repository
 			var model = await db.HangSanXuats
 				.Where(x => x.Id == id)
 				.SelectMany(x => x.ChiTietSanPhamNavigation)
+				.Where(x => x.NgayXoa == null)
 				.Select(x => new SanPhamReviewClientModel()
 				{
 					Id = x.Id,
