@@ -25,8 +25,8 @@ namespace DoAnCoSo.Controllers
 			return Json(model);
 		}
 
-		[Route("/chitietsanpham/{id?}")]
-		[Route("/SanPham/ChiTietSanPham/{id?}")]
+		[Route("/chitietsanpham")]
+		[Route("/SanPham/ChiTietSanPham")]
 		public IActionResult ChiTietSanPham()
 		{
 			return View();

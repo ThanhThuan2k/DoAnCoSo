@@ -75,12 +75,12 @@ const appendData = (data) => {
 			var html =
 				`<div class="col-lg-15 col-md-15 col-sm-4 col-6">
 					<div class="evo-product-block-item">
-						<a href="/${id}" title="Điện thoại ${tenSanPham} (${ram}|${dungLuong})" class="product__box-image">
+						<a href="/chitietsanpham?id=${id}" title="Điện thoại ${tenSanPham} (${ram}|${dungLuong})" class="product__box-image">
 							<img style="opacity: 1;" class="lazy" src="/Images/SanPham/${anhDaiDien}"
 									alt="${anhDaiDien}" />
 							${sales}
 						</a>
-						<a href="/${id}" title="${tenSanPham}" class="product__box - name">${tenSanPham}</a>
+						<a href="/chitietsanpham?id=${id}" title="${tenSanPham}" class="product__box - name">${tenSanPham}</a>
 						<div class="product__box-price">
 							<span class="price">${formatter.format(giaHienTai)}₫</span>
 							${isDisplayGiamGia}
@@ -92,7 +92,7 @@ const appendData = (data) => {
 							</div>
 						</div>
 						<div class="product__box-btn">
-							<a href="/${id}" class="btn-buy" title="Chi tiết">Chi tiết</a>
+							<a href="/chitietsanpham?id=${id}" class="btn-buy" title="Chi tiết">Chi tiết</a>
 							<a href="javascript:void(0)" title="Yêu thích" data-handle="laptop-dell-xps-13-9310-i5-1135g7-8gb-256gb-13-4-fhdtouch-win-10" class="btn-compare js-btn-wishlist">Yêu thích</a>
 						</div>
 					</div>

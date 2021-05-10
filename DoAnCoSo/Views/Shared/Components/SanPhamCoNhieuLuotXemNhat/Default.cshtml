@@ -5,7 +5,7 @@
 	{
 		<div class="col-lg-15 col-md-15 col-sm-4 col-5">
 			<div class="evo-product-block-item">
-				<a href="/chitietsanpham/@item.Id" title="@item.TenSanPham" class="product__box-image">
+				<a href="/chitietsanpham?id=@item.Id" title="@item.TenSanPham" class="product__box-image">
 					<img style="opacity: 1;" class="lazy" src="/Images/SanPham/@item.AnhDaiDien"
 						 alt="@item.TenSanPham" />
 					@if (item.GiaKhuyenMai != 0)
@@ -16,7 +16,7 @@
 						</span>
 					}
 				</a>
-				<a href="/chitietsanpham/@item.Id" title="@item.TenSanPham" class="product__box-name">Điện thoại @String.Format("{0} ({1}|{2})", item.TenSanPham, item.RAM == null ? "Đang cập nhật" : item.RAM.Replace(" ", ""), item.DungLuong == null ? "Đang cập nhật" : item.DungLuong.Replace(" ", ""))</a>
+				<a href="/chitietsanpham?id=@item.Id" title="@item.TenSanPham" class="product__box-name">Điện thoại @String.Format("{0} ({1}|{2})", item.TenSanPham, item.RAM == null ? "Đang cập nhật" : item.RAM.Replace(" ", ""), item.DungLuong == null ? "Đang cập nhật" : item.DungLuong.Replace(" ", ""))</a>
 				<div class="product__box-price">
 					<span class="price">@item.GiaHienTai?.ToString("#,###")₫</span>
 					@if (item.GiaKhuyenMai != 0)
