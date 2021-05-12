@@ -24,16 +24,6 @@ Bizweb.template = 'index';
 	window.attachEvent ? window.attachEvent('onload', asyncLoad) : window.addEventListener('load', asyncLoad, false);
 })();
 
-
-(function () {
-	var log = document.createElement('script');
-	log.type = 'text/javascript';
-	log.async = true;
-	log.src = '//stats.bizweb.vn/delivery/415483.js?lang=vi';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(log, s);
-})();
-
 window.BizwebAnalytics = window.BizwebAnalytics || {};
 window.BizwebAnalytics.meta = window.BizwebAnalytics.meta || {};
 window.BizwebAnalytics.meta.currency = 'VND';

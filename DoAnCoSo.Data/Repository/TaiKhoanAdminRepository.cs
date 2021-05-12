@@ -32,8 +32,8 @@ namespace DoAnCoSo.Data.Repository
 
 		public async Task<bool> Authorize(string username, string password)
 		{
-			TaiKhoanAdmin taiKhoan = db.TaiKhoanAdmins
-				.Where(x => x.Username == username && x.Password == password).SingleOrDefault();
+			TaiKhoanAdmin taiKhoan = await db.TaiKhoanAdmins
+				.Where(x => x.Username == username && x.Password == password).SingleOrDefaultAsync();
 			if(taiKhoan != null)
 			{
 				return true;

@@ -117,7 +117,8 @@ namespace DoAnCoSo.Data.Repository
 					TenHang = x.TenHang,
 					AnhDaiDien = x.AnhDaiDien,
 					Id = x.Id,
-					SanPhamCount = x.ChiTietSanPhamNavigation.Count
+					SanPhamCount = x.ChiTietSanPhamNavigation
+					.Where(x => x.NgayXoa == null).Count()
 				})
 				.ToListAsync();
 			return danhMucList;
@@ -251,7 +252,22 @@ namespace DoAnCoSo.Data.Repository
 					DanhSachAnhChiTiet = x.DanhSachAnhChiTiet.ToList(),
 					ThongTinChiTiet = x.ThongTinChiTiet,
 					DanhSachThongSoKyThuat = x.DanhSachThongSo.ToList(),
-					ThuocDanhMuc = x.DanhMuc
+					ThuocDanhMuc = x.DanhMuc,
+					TinhTrangMay = x.TinhTrangMay
+				})
+				.SingleOrDefaultAsync();
+			model.GiaHienTai = model.GiaGoc - model.GiaKhuyenMai;
+			return model;
+		}
+
+		public async Task<HinhAnhThuocChiTietSanPham> GetImageGallery_Product(int id)
+		{
+			var model = await db.ChiTietSanPhams.AsNoTracking()
+				.Where(x => x.Id == id)
+				.Select(x => new HinhAnhThuocChiTietSanPham()
+				{
+					Avatar = x.AnhDaiDien,
+					DanhSachAnhChiTiet = x.DanhSachAnhChiTiet.ToList()
 				})
 				.SingleOrDefaultAsync();
 			return model;

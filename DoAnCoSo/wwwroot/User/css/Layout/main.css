@@ -1,3 +1,7 @@
+#js_show-cart {
+    cursor: pointer;
+}
+
 #admin_bar_iframe {
     display: none !important
 }

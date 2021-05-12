@@ -23,5 +23,6 @@ namespace DoAnCoSo.Data.ModelHelper
 		public string ThongTinChiTiet { get; set; }
 		public List<ThongSoKyThuat> DanhSachThongSoKyThuat { get; set; }
 		public DanhMuc ThuocDanhMuc { get; set; }
+		public string TinhTrangMay { get; set; }
 	}
 }
