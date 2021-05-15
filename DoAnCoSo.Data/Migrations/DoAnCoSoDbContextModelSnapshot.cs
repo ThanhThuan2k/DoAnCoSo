@@ -34,6 +34,27 @@ namespace DoAnCoSo.Data.Migrations
                     b.ToTable("ChiTietSanPhamThongSoKyThuat");
                 });
 
+            modelBuilder.Entity("DoAnCoSo.DTOs.ChiTietDonDatHang", b =>
+                {
+                    b.Property<int>("DonDatHangId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChiTietSanPhamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuong")
+                        .HasColumnType("int");
+
+                    b.Property<double>("ThanhTien")
+                        .HasColumnType("float");
+
+                    b.HasKey("DonDatHangId", "ChiTietSanPhamId");
+
+                    b.HasIndex("ChiTietSanPhamId");
+
+                    b.ToTable("ChiTietDonDatHangs");
+                });
+
             modelBuilder.Entity("DoAnCoSo.DTOs.ChiTietSanPham", b =>
                 {
                     b.Property<int>("Id")
@@ -123,6 +144,42 @@ namespace DoAnCoSo.Data.Migrations
                     b.ToTable("DanhMucs");
                 });
 
+            modelBuilder.Entity("DoAnCoSo.DTOs.DonDatHang", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DiaChiDuPhong")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiaChiTuyChon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GhiChu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoTen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("NgayDat")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SoDienThoai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TongTienHoaDon")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DonDatHangs");
+                });
+
             modelBuilder.Entity("DoAnCoSo.DTOs.HangSanXuat", b =>
                 {
                     b.Property<int>("Id")
@@ -165,6 +222,30 @@ namespace DoAnCoSo.Data.Migrations
                     b.HasIndex("ThuocSanPhamId");
 
                     b.ToTable("HinhAnhs");
+                });
+
+            modelBuilder.Entity("DoAnCoSo.DTOs.LienHe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DienThoai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoTen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NoiDung")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LienHes");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.MauSac", b =>
@@ -255,17 +336,8 @@ namespace DoAnCoSo.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("AnhDaiDienKhachHang")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("BiKhoa")
                         .HasColumnType("bit");
-
-                    b.Property<string>("DanhXung")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -277,9 +349,6 @@ namespace DoAnCoSo.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SoDienThoai")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenDangNhap")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenKhachHang")
@@ -303,6 +372,25 @@ namespace DoAnCoSo.Data.Migrations
                         .HasForeignKey("SanPhamNavigationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DoAnCoSo.DTOs.ChiTietDonDatHang", b =>
+                {
+                    b.HasOne("DoAnCoSo.DTOs.ChiTietSanPham", "ChiTietSanPham")
+                        .WithMany()
+                        .HasForeignKey("ChiTietSanPhamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoAnCoSo.DTOs.DonDatHang", "DonDatHang")
+                        .WithMany("ChiTietDonDatHangs")
+                        .HasForeignKey("DonDatHangId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ChiTietSanPham");
+
+                    b.Navigation("DonDatHang");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.ChiTietSanPham", b =>
@@ -337,6 +425,11 @@ namespace DoAnCoSo.Data.Migrations
             modelBuilder.Entity("DoAnCoSo.DTOs.DanhMuc", b =>
                 {
                     b.Navigation("ChiTietSanPhamNavigation");
+                });
+
+            modelBuilder.Entity("DoAnCoSo.DTOs.DonDatHang", b =>
+                {
+                    b.Navigation("ChiTietDonDatHangs");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.HangSanXuat", b =>

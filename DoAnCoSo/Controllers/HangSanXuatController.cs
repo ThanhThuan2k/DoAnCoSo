@@ -1,4 +1,5 @@
 ﻿using DoAnCoSo.Data.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,11 @@ namespace DoAnCoSo.Controllers
 		{
 			hangSanXuatRepo = new HangSanXuatRepository();
 		}
+
+		[AllowAnonymous]
+		[Authorize(AuthenticationSchemes = "Customer")]
 		public IActionResult Index(int id = 0)
 		{
-			ViewBag.CallJS = "";
-			if(id != 0)
-			{
-				ViewBag.CallJS = "<script>alert('OK');</script>";
-			}
 			return View();
 		}
 

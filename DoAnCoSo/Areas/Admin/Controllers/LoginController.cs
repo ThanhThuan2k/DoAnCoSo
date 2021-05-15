@@ -48,7 +48,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 						var claims = new List<Claim>
 						{
 							new Claim(ClaimTypes.Name, model.username),
-							new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin"),
+							new Claim(ClaimTypes.Role, isRoot ? "SuperAdmin" : "Admin", "Customer"),
 							new Claim(ClaimTypes.Uri, imagePath),
 							new Claim(ClaimTypes.Actor, name)
 						};

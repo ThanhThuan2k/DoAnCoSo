@@ -30,6 +30,7 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 		[Route("/admin")]
 		public IActionResult Home()
 		{
+			var user = User.Identity.Name;
 			return View();
 		}
 

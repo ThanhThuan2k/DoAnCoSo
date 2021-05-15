@@ -18,6 +18,9 @@ namespace DoAnCoSo.Data
 		public DbSet<ThongSoKyThuat> ThongSoKyThuats { get; set; }
 		public DbSet<TaiKhoanAdmin> TaiKhoanAdmins { get; set; }
 		public DbSet<ThongTinKhachHang> ThongTinKhachHangs { get; set; }
+		public DbSet<DonDatHang> DonDatHangs { get; set; }
+		public DbSet<ChiTietDonDatHang> ChiTietDonDatHangs { get; set; }
+		public DbSet<LienHe> LienHes { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer("Data Source=45.119.83.27;Initial Catalog=DoAnCoSo;Persist Security Info=True;User ID=sa;Password=mssql@12345",
@@ -38,6 +41,12 @@ namespace DoAnCoSo.Data
 			modelBuilder.Entity<ChiTietSanPham>()
 				.Property(x => x.LuotXem)
 				.HasDefaultValue(0);
+			modelBuilder.Entity<ChiTietDonDatHang>()
+				.HasKey(x => new
+				{
+					x.DonDatHangId,
+					x.ChiTietSanPhamId
+				});
 		}
 	}
 }
