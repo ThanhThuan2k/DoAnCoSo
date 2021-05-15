@@ -264,7 +264,6 @@ theme.wishlist = (function () {
 theme.compare = (function () {
     var compareButtonClass = '.js-btn-compare',
         compareRemoveButtonClass = '.js-remove-compare',
-        $compareShowButton = $('.site-header__compare'),
         $compareCount = $('.js-compare-count'),
         $compareContainer = $('.js-compare-content'),
         $compareProduct = $('.compare-product'),

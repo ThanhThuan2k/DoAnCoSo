@@ -4,7 +4,6 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Debug\net5.0\DoAnCoSo.DTOs.runtimeconf
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Debug\net5.0\DoAnCoSo.DTOs.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Debug\net5.0\ref\DoAnCoSo.DTOs.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Debug\net5.0\DoAnCoSo.DTOs.pdb
-D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.csprojAssemblyReference.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.GeneratedMSBuildEditorConfig.editorconfig
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.AssemblyInfoInputs.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.AssemblyInfo.cs
@@ -13,3 +12,4 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\ref\DoAnCoSo.DTOs.dll
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.pdb
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.genruntimeconfig.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Debug\net5.0\DoAnCoSo.DTOs.csprojAssemblyReference.cache

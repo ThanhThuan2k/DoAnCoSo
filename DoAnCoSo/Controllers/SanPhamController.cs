@@ -1,6 +1,7 @@
 ﻿using DoAnCoSo.Data.ModelHelper;
 using DoAnCoSo.Data.Repository;
 using DoAnCoSo.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace DoAnCoSo.Controllers
 		{
 			sanPhamRepo = new SanPhamRepository();
 		}
+
+		[AllowAnonymous]
+		[Authorize(AuthenticationSchemes = "Customer")]
 		public IActionResult DanhSach(int id = 0)
 		{
 			return View();
@@ -29,6 +33,8 @@ namespace DoAnCoSo.Controllers
 
 		[Route("/chitietsanpham")]
 		[Route("/SanPham/ChiTietSanPham")]
+		[AllowAnonymous]
+		[Authorize(AuthenticationSchemes = "Customer")]
 		public async Task<IActionResult> ChiTietSanPham(int? id)
 		{
 			var model = await sanPhamRepo.GetImageGallery_Product(id ?? 0);

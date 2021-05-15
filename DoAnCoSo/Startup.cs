@@ -42,6 +42,9 @@ namespace DoAnCoSo
                     option.Cookie.HttpOnly = true;
                     option.LoginPath = "/admin/login/index";
                     option.AccessDeniedPath = "/admin/accessdenied/index";
+                }).AddCookie("Customer", config => {
+                    config.ExpireTimeSpan = TimeSpan.FromMinutes(240);
+                    config.Cookie.HttpOnly = true;
                 });
         }
 

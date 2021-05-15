@@ -127,6 +127,7 @@ const callDataAndAppendDataToModal = async () => {
 					</div>
 				</div>`;
 			select('.cart_body').insertAdjacentHTML('beforeend', html);
+			select('.cart_footer').classList.add('d-none');
 		}
 	}).then(function () {
 		const allRemoveCartButton = selectAll('.cart__btn-remove');
@@ -149,6 +150,7 @@ const showCartModal = () => {
 	select('#cart-sidebars').classList.add('active');
 
 	select('.cart-footer').classList.add('d-none');
+	select('.cart_body').textContent = "";
 	var loadingDiv = `   <div class="cart-loading" style="width: 100%; height: 200px; display: flex; flex-direction: column; align-items: center;margin-top: 40%;">
 							<img style="width: 130px; height: auto;" src="/Images/Search.gif" />
 							<div class="loading-content">
