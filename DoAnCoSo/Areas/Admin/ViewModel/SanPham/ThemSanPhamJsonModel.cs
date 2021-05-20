@@ -23,5 +23,6 @@ namespace DoAnCoSo.Areas.Admin.ViewModel.SanPham
 		public List<int> ThongSoKyThuat { get; set; }
 		public IFormFile anhDaiDien { get; set; }
 		public List<IFormFile> danhSachAnhChiTiet { get; set; }
+		public int LoaiPhuKienId { get; set; }
 	}
 }

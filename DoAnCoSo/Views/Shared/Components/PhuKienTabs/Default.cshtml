@@ -1,0 +1,8 @@
+﻿@model ICollection<DoAnCoSo.DTOs.LoaiPhuKien>
+<div class="sport-title-link">
+	@foreach (var item in Model)
+	{
+		<a class="loai-phu-kien-tabs" data-id="@item.Id" title="@item.TenLoaiPhuKien">@item.TenLoaiPhuKien</a>
+	}
+	<a href="/danhsachphukien" title="">Xem tất cả</a>
+</div>

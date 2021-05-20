@@ -7503,7 +7503,8 @@ footer.footer .footer-coll-title.active span.ex {
 }
 
 .evo-product-block-item .product__box-btn .btn-compare {
-    background: #99a2aa
+    background: #99a2aa;
+    cursor: pointer;
 }
 
 .evo-product-block-item .product__box-btn .btn-compare:hover,

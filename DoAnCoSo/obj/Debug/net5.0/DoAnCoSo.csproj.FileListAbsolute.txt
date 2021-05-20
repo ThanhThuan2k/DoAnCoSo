@@ -131,7 +131,6 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.GeneratedMSBuildEdito
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.AssemblyInfoInputs.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.AssemblyInfo.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.csproj.CoreCompileInputs.cache
-D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.MvcApplicationPartsAssemblyInfo.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.MvcApplicationPartsAssemblyInfo.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.RazorAssemblyInfo.cache
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.RazorAssemblyInfo.cs
@@ -195,3 +194,9 @@ D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\DatHang\Index.csht
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\DatHang\DangNhap.cshtml.g.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Home\LienHe.cshtml.g.cs
 D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\DonDatHang\Index.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Shared\Components\PhuKien\Default.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Areas\Admin\Views\SanPham\ThemPhuKien.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\DoAnCoSo.MvcApplicationPartsAssemblyInfo.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\PhuKien\DanhSachPhuKien.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\Shared\Components\PhuKienTabs\Default.cshtml.g.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo\obj\Debug\net5.0\Razor\Views\SanPham\SanPhamYeuThich.cshtml.g.cs

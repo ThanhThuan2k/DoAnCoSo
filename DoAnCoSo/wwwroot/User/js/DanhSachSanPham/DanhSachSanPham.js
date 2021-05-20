@@ -80,7 +80,7 @@ const appendData = (data) => {
 						</div>
 						<div class="product__box-btn">
 							<a href="/chitietsanpham?id=${id}" class="btn-buy" title="Chi tiết">Chi tiết</a>
-							<a href="javascript:void(0)" title="Yêu thích" data-handle="laptop-dell-xps-13-9310-i5-1135g7-8gb-256gb-13-4-fhdtouch-win-10" class="btn-compare js-btn-wishlist">Yêu thích</a>
+							<a href="javascript:void(0)" title="Yêu thích" data-handle="laptop-dell-xps-13-9310-i5-1135g7-8gb-256gb-13-4-fhdtouch-win-10" class="btn-compare like-button">Yêu thích</a>
 						</div>
 					</div>
 				</div>`;

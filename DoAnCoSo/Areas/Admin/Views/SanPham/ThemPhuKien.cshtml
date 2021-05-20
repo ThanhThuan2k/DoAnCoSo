@@ -1,0 +1,104 @@
+﻿
+@{
+	ViewData["Title"] = "ThemPhuKien";
+	Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+	<link href="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+	<link href="~/Admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css" rel="stylesheet" />
+	<link href="~/lib/summernote/summernote.min.css" rel="stylesheet" />
+}
+
+<form asp-action="ThemPhuKien" asp-controller="SanPham" asp-area="Admin" method="post" enctype="multipart/form-data">
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label">Tên sản phẩm</label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" name="TenSanPham" type="text">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-12 col-md-2 col-form-label">Thời hạn bảo hành</label>
+		<div class="col-sm-12 col-md-10">
+			<input class="form-control" name="ThoiHanBaoHanh" type="text">
+		</div>
+	</div>
+	<div class="form-group">
+		<textarea class="ThongTinChiTiet" name="ThongTinChiTiet" id="summernote">
+
+		</textarea>
+	</div>
+	<div class="col-sm-12 col-md-12 pd-0">
+		<div class="form-group">
+			<h5 class="h5">Giá gốc sản phẩm</h5>
+			<div class="input-group bootstrap-touchspin bootstrap-touchspin-injected mt-2">
+				<span class="input-group-btn input-group-prepend">
+					<button class="btn btn-primary bootstrap-touchspin-down" type="button">
+						-
+					</button>
+				</span>
+				<span class="input-group-addon bootstrap-touchspin-prefix input-group-prepend">
+					<span class="input-group-text">
+						VND
+					</span>
+				</span>
+				<input name="GiaGocSanPham" id="GiaGocSanPham" type="text" value="1,000,000" class="form-control">
+				<span class="input-group-btn input-group-append">
+					<button class="btn btn-primary bootstrap-touchspin-up" type="button">
+						+
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12 col-sm-12 col-md-12">
+			<select name="LoaiPhuKienId" class="custom-select2 form-control ">
+				<option value="0">Không</option>
+				@foreach (var item in ViewBag.LoaiPhuKien)
+				{
+					<option value="@item.Id">@item.TenLoaiPhuKien</option>
+				}
+			</select>
+		</div>
+	</div>
+
+	<div class="row">
+		@foreach (var item in ViewBag.ThongSoKyThuat)
+		{
+			<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+				<h5 class="h5">@item.TenThongSo</h5>
+				<div class="form-group" data-select2-id="7">
+					<select name="ThongSoKyThuat[]" class="thong-so-ky-thuat custom-select2 form-control select2-hidden-accessible" name="@item.TenThongSo" style="width: 100%; height: 45px;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+						<option value="0">Không</option>
+						@foreach (var child in item.ChiTietMoTa)
+						{
+							<option value="@child.Id">@child.MoTa</option>
+						}
+					</select>
+				</div>
+			</div>
+		}
+	</div>
+
+	@*Ảnh đại diện*@
+	<div class="form-group row mb-2">
+		<input type="file" name="AnhDaiDien" accept="image/*" />
+	</div>
+
+	@*Ảnh chi tiết*@
+	<div class="form-group row">
+		<input type="file" accept="image/*" multiple name="DanhSachAnhChiTiet" />
+	</div>
+
+	<div class="row">
+		<button type="submit" class="btn btn-primary">Thêm</button>
+	</div>
+</form>
+
+@section js{
+	<script src="~/Admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<script src="~/lib/summernote/summernote.min.js"></script>
+	<script src="~/Admin/js/Admin/ThemSanPham.js"></script>
+}

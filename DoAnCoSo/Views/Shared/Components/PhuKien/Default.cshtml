@@ -1,0 +1,34 @@
+﻿@model ICollection<DoAnCoSo.Data.ModelHelper.SanPhamReviewClientModel>
+
+<div class="evo_section_product evo-block-product row evo-wrap-mb phu-kien-area">
+	@foreach (var item in Model)
+	{
+		<div class="col-lg-4 col-md-6 col-sm-12 col-12 item">
+			<div class="evo-product-block-item evo-product-block-item-small">
+				<a href="/chitietsanpham?id=@item.Id" title="@item.TenSanPham" class="product__box-image">
+					<img class="lazy" src="/Images/SanPham/@item.AnhDaiDien"
+						 alt="@item.TenSanPham" />
+					<span class="sales">
+						<i class="icon-flash2"></i> Giảm
+						@item.GiaKhuyenMai?.ToString("#,###đ")
+					</span>
+				</a>
+				<div class="evo-product-right">
+					<a href="/chitietsanpham?id=@item.Id" title="@item.TenSanPham" class="product__box-name">@item.TenSanPham</a>
+					<div class="product__box-price">
+						<span class="price">@item.GiaHienTai?.ToString("#,###đ")</span>
+						<span class="old-price">@item.GiaGoc.ToString("#,###đ")</span>
+					</div>
+					<div class="evo-tag">
+						<span>Trả góp 0% lãi suất</span>
+						<span>Bảo hành trong 1 tháng</span>
+					</div>
+				</div>
+				<div class="product__box-btn">
+					<a href="/chitietsanpham?id=@item.Id" class="btn-buy" title="Chi tiết">Chi tiết</a>
+					<a href="#" title="Yêu thích" data-id="@item.Id" class="btn-compare like-button">Yêu thích</a>
+				</div>
+			</div>
+		</div>
+	}
+</div>

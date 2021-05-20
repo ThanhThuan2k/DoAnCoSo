@@ -77,6 +77,9 @@ namespace DoAnCoSo.Data.Migrations
                     b.Property<int?>("HangSanXuatId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("LoaiPhuKienId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("LuotThich")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
@@ -119,6 +122,8 @@ namespace DoAnCoSo.Data.Migrations
                     b.HasIndex("DanhMucId");
 
                     b.HasIndex("HangSanXuatId");
+
+                    b.HasIndex("LoaiPhuKienId");
 
                     b.ToTable("ChiTietSanPhams");
                 });
@@ -246,6 +251,24 @@ namespace DoAnCoSo.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("LienHes");
+                });
+
+            modelBuilder.Entity("DoAnCoSo.DTOs.LoaiPhuKien", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Alias")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TenLoaiPhuKien")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LoaiPhuKiens");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.MauSac", b =>
@@ -403,9 +426,15 @@ namespace DoAnCoSo.Data.Migrations
                         .WithMany("ChiTietSanPhamNavigation")
                         .HasForeignKey("HangSanXuatId");
 
+                    b.HasOne("DoAnCoSo.DTOs.LoaiPhuKien", "LoaiPhuKien")
+                        .WithMany("ChiTietSanPhamNavigation")
+                        .HasForeignKey("LoaiPhuKienId");
+
                     b.Navigation("DanhMuc");
 
                     b.Navigation("HangSanXuat");
+
+                    b.Navigation("LoaiPhuKien");
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.HinhAnh", b =>
@@ -433,6 +462,11 @@ namespace DoAnCoSo.Data.Migrations
                 });
 
             modelBuilder.Entity("DoAnCoSo.DTOs.HangSanXuat", b =>
+                {
+                    b.Navigation("ChiTietSanPhamNavigation");
+                });
+
+            modelBuilder.Entity("DoAnCoSo.DTOs.LoaiPhuKien", b =>
                 {
                     b.Navigation("ChiTietSanPhamNavigation");
                 });

@@ -1,4 +1,5 @@
 ﻿using DoAnCoSo.Data.JsonModel;
+using DoAnCoSo.Data.ModelHelper;
 using DoAnCoSo.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -113,6 +114,18 @@ namespace DoAnCoSo.Data.Repository
 				}
 			}
 			return false;
+		}
+
+		public async Task<List<LoaiPhuKienClientModel>> GetAllLoaiPhuKien()
+		{
+			var data = await db.LoaiPhuKiens
+				.Select(x => new LoaiPhuKienClientModel()
+				{
+					Id = x.Id,
+					TenLoaiPhuKien = x.TenLoaiPhuKien
+				})
+				.ToListAsync();
+			return data;
 		}
 	}
 }

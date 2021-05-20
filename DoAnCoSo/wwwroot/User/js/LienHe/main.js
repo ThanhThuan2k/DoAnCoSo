@@ -155,7 +155,7 @@ var buy_now = function(id) {
 }
 window.theme = window.theme || {};
 theme.wishlist = (function() {
-    var wishlistButtonClass = '.js-btn-wishlist',
+    var wishlistButtonClass = '.like-button',
         wishlistRemoveButtonClass = '.js-remove-wishlist',
         $wishlistCount = $('.js-wishlist-count'),
         $wishlistContainer = $('.js-wishlist-content'),

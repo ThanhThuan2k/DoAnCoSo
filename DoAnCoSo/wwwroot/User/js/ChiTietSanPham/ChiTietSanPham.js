@@ -155,8 +155,7 @@ var buy_now = function (id) {
 }
 window.theme = window.theme || {};
 theme.wishlist = (function () {
-    var wishlistButtonClass = '.js-btn-wishlist',
-        wishlistRemoveButtonClass = '.js-remove-wishlist',
+    var wishlistRemoveButtonClass = '.js-remove-wishlist',
         $wishlistCount = $('.js-wishlist-count'),
         $wishlistContainer = $('.js-wishlist-content'),
         $wishlistSmall = $('.wish-list-small'),
@@ -319,7 +318,6 @@ theme.compare = (function () {
         $compareProduct.html('');
         $compareSpecification.html('');
         if (compareObject.length > 0) {
-            $compareShowButton.removeClass('d-none');
             compareGrid = compareObject.length === 1 ? 'col' : 'col';
             for (var i = 0; i < compareObject.length; i++) {
                 var productHandle = compareObject[i];
@@ -403,7 +401,6 @@ theme.compare = (function () {
             });
         } else {
             $compareContainer.html('<div class="alert alert-warning margin-10">Vui lÃ²ng chá»n sáº£n pháº©m Ä‘á»ƒ so sÃ¡nh</div>');
-            $compareShowButton.addClass('d-none');
             evoDefaultProductType = '';
         }
         $(compareButtonClass).each(function () {
