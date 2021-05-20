@@ -97,9 +97,9 @@ const callDataAndAppendDataToModal = async () => {
 									<div class="cart_select">
 										<div class="input-group-btn">
 											<input class="variantID" type="hidden" name="variantId" value="${soLuong}">
-											<button disabled="" class="reduced items-count btn-minus btn btn-default" type="button">–</button>
-											<input type="text" maxlength="3" min="0" class="input-text number-sidebar qtyItem41242986" id="quatity_${id}" name="Lines" size="4" value="${soLuong}">
-											<button class="increase items-count btn-plus btn btn-default" type="button">+</button>
+											<button data-id="${id}" class="giam btn-minus btn btn-default" type="button">–</button>
+											<input type="text" maxlength="3" min="0" class="input-text number-sidebar" id="quatity_${id}" name="Lines" size="4" value="${soLuong}">
+											<button data-id="${id}" class="tang btn-plus btn btn-default" type="button">+</button>
 										</div>
 									</div>
 								</div>
@@ -142,6 +142,29 @@ const callDataAndAppendDataToModal = async () => {
 				}
 			});
 		}
+
+		const allReduceButton = selectAll('.giam');
+		const allIncreaseButton = selectAll('.tang');
+		for (var i = 0; i < allReduceButton.length; i++) {
+			allReduceButton[i].addEventListener('click', function (e) {
+				let reduceCurrentButton = e.currentTarget;
+				let currentId = reduceCurrentButton.getAttribute('data-id');
+				let currentSoLuong = getCookie("cart_" + currentId);
+				if (currentSoLuong > 1) {
+					setCookie("cart_" + currentId, +currentSoLuong - 1, 365);
+					select('#quatity_' + currentId).value = +currentSoLuong - 1;
+				}
+			});
+		}
+		for (var i = 0; i < allIncreaseButton.length; i++) {
+			allIncreaseButton[i].addEventListener('click', function (e) {
+				let increaseCurrentButton = e.currentTarget;
+				let currentId = increaseCurrentButton.getAttribute('data-id');
+				let currentSoLuong = getCookie("cart_" + currentId);
+				setCookie("cart_" + currentId, +currentSoLuong + 1, 365);
+				select('#quatity_' + currentId).value = +currentSoLuong + 1;
+			});
+		}
 	});
 }
 
@@ -180,3 +203,20 @@ for (var i = 0; i < allShowCartButtons.length; i++) {
 window.addEventListener('load', function (e) {
 	appendCartQuatityProduct();
 });
+
+const allLikeButton = selectAll('.like-button');
+for (var i = 0; i < allLikeButton.length; i++) {
+	allLikeButton[i].addEventListener('click', function (e) {
+		e.preventDefault();
+		let currentId = e.currentTarget.getAttribute('data-id');
+		console.log(currentId);
+		setCookie("like_" + currentId, 0, 365);
+
+		let aTag = document.createElement('a');
+		aTag.setAttribute('href', '/san-pham-yeu-thich');
+		aTag.classList.add('btn-compare', 'liked');
+		aTag.innerHTML = 'Đã yêu thích';
+
+		e.currentTarget.parentNode.replaceChild(aTag, e.currentTarget);
+	});
+}

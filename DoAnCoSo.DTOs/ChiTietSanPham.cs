@@ -38,5 +38,6 @@ namespace DoAnCoSo.DTOs
 		public DateTime? NgayXoa { get; set; }
 		public string NguoiXoa { get; set; }
 		public double? GiamGia { get; set; }
+		public LoaiPhuKien LoaiPhuKien { get; set; }
 	}
 }

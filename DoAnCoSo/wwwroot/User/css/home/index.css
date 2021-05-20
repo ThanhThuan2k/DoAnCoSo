@@ -2825,7 +2825,7 @@ body.modal-open {
 .section_small_product .col-lg-4 .evo-product-block-item.evo-product-block-item-small .product__box-image img:not(.loaded) {
     width: 100% !important;
     height: 100% !important;
-    opacity: 0.2
+    opacity: 1!important;
 }
 
 .section_small_product .col-lg-4 .evo-product-block-item.evo-product-block-item-small .evo-product-right {

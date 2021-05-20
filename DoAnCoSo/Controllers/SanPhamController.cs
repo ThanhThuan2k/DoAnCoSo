@@ -80,5 +80,42 @@ namespace DoAnCoSo.Controllers
 			}
 			return Json(gioHangList);
 		}
+
+		[AllowAnonymous]
+		[Route("/san-pham-yeu-thich")]
+		public IActionResult SanPhamYeuThich()
+		{
+			return View();
+		}
+
+		public async Task<JsonResult> DanhSachSanPhamYeuThich()
+		{
+			var cookieList = Request.Cookies.Where(x => x.Key.Contains("like_"))
+				.ToList();
+			List<GioHangClientModel> gioHangList = new List<GioHangClientModel>();
+			foreach (var item in cookieList)
+			{
+				try
+				{
+					int currentID = Convert.ToInt32(item.Key.Replace("like_", ""));
+					ChiTietSanPham thisProduct = await sanPhamRepo.GetSanPham(currentID);
+					GioHangClientModel cartTemp = new GioHangClientModel()
+					{
+						Id = currentID,
+						TenSanPham = thisProduct.TenSanPham,
+						AnhDaiDien = thisProduct.AnhDaiDien,
+						SoLuong = Convert.ToInt32(item.Value),
+						GiaGocSanPham = thisProduct.GiaGocSanPham,
+						GiaHienTai = thisProduct.GiaGocSanPham ?? 0 - thisProduct.GiamGia ?? 0
+					};
+					gioHangList.Add(cartTemp);
+				}
+				catch
+				{
+					continue;
+				}
+			}
+			return Json(gioHangList);
+		}
 	}
 }

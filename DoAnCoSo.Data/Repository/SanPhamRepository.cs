@@ -127,7 +127,7 @@ namespace DoAnCoSo.Data.Repository
 		public async Task<List<SanPhamReviewClientModel>> GetSanPhamBanChayNhat()
 		{
 			var result = await db.ChiTietSanPhams
-				.Where(x => x.NgayXoa == null)
+				.Where(x => x.NgayXoa == null && x.DanhMuc.TenDanhMuc != "Phụ kiện")
 				.Select(x => new SanPhamReviewClientModel()
 				{
 					Id = x.Id,
@@ -152,7 +152,7 @@ namespace DoAnCoSo.Data.Repository
 		public async Task<List<SanPhamReviewClientModel>> GetSanPhamYeuThichNhat()
 		{
 			var model = await db.ChiTietSanPhams
-				.Where(x => x.NgayXoa == null)
+				.Where(x => x.NgayXoa == null && x.DanhMuc.TenDanhMuc != "Phụ kiện")
 				.OrderByDescending(x => x.LuotThich)
 				.AsNoTracking()
 				.Select(x => new SanPhamReviewClientModel()
@@ -180,7 +180,7 @@ namespace DoAnCoSo.Data.Repository
 		public async Task<List<SanPhamReviewClientModel>> GetSanPhamCoNhieuLuotXemNhat()
 		{
 			var model = await db.ChiTietSanPhams.AsNoTracking()
-				.Where(x => x.NgayXoa == null)
+				.Where(x => x.NgayXoa == null && x.DanhMuc.TenDanhMuc != "Phụ kiện")
 				.OrderByDescending(x => x.LuotXem)
 				.Select(x => new SanPhamReviewClientModel()
 				{
@@ -208,7 +208,7 @@ namespace DoAnCoSo.Data.Repository
 		public async Task<List<SanPhamReviewClientModel>> TatCaSanPham()
 		{
 			var model = await db.ChiTietSanPhams.AsNoTracking()
-				.Where(x => x.NgayXoa == null)
+				.Where(x => x.NgayXoa == null && x.DanhMuc.TenDanhMuc != "Phụ kiện")
 				.OrderByDescending(x => x.Id)
 				.Select(x => new SanPhamReviewClientModel()
 				{
@@ -270,6 +270,75 @@ namespace DoAnCoSo.Data.Repository
 					DanhSachAnhChiTiet = x.DanhSachAnhChiTiet.ToList()
 				})
 				.SingleOrDefaultAsync();
+			return model;
+		}
+
+		public async Task<List<SanPhamReviewClientModel>> GetPhuKien()
+		{
+			var data = await db.DanhMucs.AsNoTracking()
+				.Include(x => x.ChiTietSanPhamNavigation)
+				.Where(x => x.TenDanhMuc == "Phụ kiện")
+				.SelectMany(x => x.ChiTietSanPhamNavigation)
+				.Where(x => x.NgayXoa == null)
+				.Select(x => new SanPhamReviewClientModel()
+				{
+					Id = x.Id,
+					AnhDaiDien = x.AnhDaiDien,
+					TenSanPham = x.TenSanPham,
+					GiaKhuyenMai = x.GiamGia,
+					GiaGoc = x.GiaGocSanPham ?? 0,
+					RAM = x.DanhSachThongSo
+					.Where(x => x.TenThongSo == "RAM")
+					.Select(x => x.MoTa)
+					.FirstOrDefault(),
+					DungLuong = x.DanhSachThongSo
+					.Where(x => x.TenThongSo == "Dung lượng")
+					.Select(x => x.MoTa)
+					.FirstOrDefault()
+				})
+				.OrderByDescending(x => x.Id)
+				.Take(6)
+				.ToListAsync();
+			return data;
+		}
+
+		public async Task<DanhMuc> DanhMucPhuKien()
+		{
+			return await db.DanhMucs.Where(x => x.TenDanhMuc == "Phụ kiện").FirstOrDefaultAsync();
+		}
+
+		public async Task<LoaiPhuKien> GetLoaiPhuKien(int id)
+		{
+			return await db.LoaiPhuKiens.FindAsync(id);
+		}
+
+		public async Task<List<LoaiPhuKien>> GetAllLoaiPhuKien()
+		{
+			return await db.LoaiPhuKiens.OrderBy(x => x.Id).ToListAsync();
+		}
+
+		public async Task<List<SanPhamReviewClientModel>> PhuKienTheoLoai(int id)
+		{
+			var model = await db.LoaiPhuKiens
+				.Where(x => x.Id == id)
+				.Include(x => x.ChiTietSanPhamNavigation)
+				.SelectMany(x => x.ChiTietSanPhamNavigation)
+				.Select(x => new SanPhamReviewClientModel()
+				{
+					Id = x.Id,
+					AnhDaiDien = x.AnhDaiDien,
+					TenSanPham = x.TenSanPham,
+					GiaKhuyenMai = x.GiamGia??0,
+					GiaGoc = x.GiaGocSanPham ?? 0
+				})
+				.OrderByDescending(x => x.Id)
+				.Take(6)
+				.ToListAsync();
+
+			foreach (var item in model)
+			{
+				item.GiaHienTai = item.GiaGoc - item.GiaKhuyenMai;
+			}
 			return model;
 		}
 	}
