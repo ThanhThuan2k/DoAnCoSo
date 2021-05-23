@@ -1,0 +1,25 @@
+﻿.alert--loader{
+	display: flex;
+	justify-content: space-around;
+}
+
+	.alert--loader .input-shipping-group{
+		width: 80%;
+	}
+
+		.alert--loader .input-shipping-group .checkbox-wrap {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			background: #000;
+			overflow: hidden;
+		}
+
+			.alert--loader .input-shipping-group .checkbox-wrap .shipping-checkbox {
+				width: 100%;
+				height: 100%;
+			}
+
+		.alert--loader .shipping-price-number {
+			width: 20%;
+		}

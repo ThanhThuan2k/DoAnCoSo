@@ -1,3 +1,4 @@
+using DoAnCoSo.Common;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +47,7 @@ namespace DoAnCoSo
                     config.ExpireTimeSpan = TimeSpan.FromMinutes(240);
                     config.Cookie.HttpOnly = true;
                 });
+            services.AddSingleton(new SystemConfiguration());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

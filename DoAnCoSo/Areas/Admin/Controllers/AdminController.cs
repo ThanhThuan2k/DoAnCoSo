@@ -28,10 +28,11 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 
 		[Authorize(Roles = "Admin, SuperAdmin")]
 		[Route("/admin")]
-		public IActionResult Home()
+		public async Task<IActionResult> Home()
 		{
-			var user = User.Identity.Name;
-			return View();
+			SanPhamRepository sanPham = new SanPhamRepository();
+			var model = await sanPham.GetSanPhamBanChayNhat();
+			return View(model);
 		}
 
 		[Authorize(Roles = "Admin, SuperAdmin")]

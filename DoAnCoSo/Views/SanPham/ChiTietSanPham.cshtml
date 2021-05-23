@@ -2,6 +2,7 @@
 @{
 	ViewData["Title"] = "ChiTietSanPham";
 	Layout = "~/Views/Shared/_Layout.cshtml";
+	var conf = new SystemConfiguration();
 }
 
 @section css{
@@ -229,7 +230,7 @@
 						<button type="button" class="evo-button-bottom-form favorites-btn like-button js-favorites js-favorites-heart" title="Thêm vào danh sách yêu thích" data-handle="iphone-12-128gb-chinh-hang-vn-a">
 							Yêu thích
 						</button>
-						<a href="/mua-hang-tra-gop-online" class="evo-button-bottom-form" target="_blank" title="Trả góp">Trả góp</a>
+						<a href="#" class="evo-button-bottom-form tra-gop" title="Trả góp">Trả góp</a>
 						<a href="javascript:void(0)" class="evo-button-bottom-form js-btn-compare" title="So sánh" data-handle="iphone-12-128gb-chinh-hang-vn-a" data-type="Smartphone">
 							<svg width="512" height="512" x="0" y="0" viewBox="0 0 459 459.648" style="enable-background:new 0 0 512 512">
 								<path xmlns="http://www.w3.org/2000/svg" d="m416.324219 293.824219c0 26.507812-21.492188 48-48 48h-313.375l63.199219-63.199219-22.625-22.625-90.511719 90.511719c-6.246094 6.25-6.246094 16.375 0 22.625l90.511719 90.511719 22.625-22.625-63.199219-63.199219h313.375c44.160156-.054688 79.945312-35.839844 80-80v-64h-32zm0 0" fill="#ffffff" data-original="#000000" style="" />
@@ -237,7 +238,7 @@
 							</svg>
 						</a>
 					</div>
-					<div class="product-hotline">Gọi <a href="tel:0123456789" title="0123456789">0123 456 789</a> để tư vấn mua hàng</div>
+					<div class="product-hotline">Gọi <a href="tel:@conf.SoDienThoai.Value" title="@conf.SoDienThoai.Value">@conf.SoDienThoai.Value</a> để tư vấn mua hàng</div>
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-12 col-sm-12 col-12 evo-feature no-padding">
@@ -390,7 +391,7 @@
 				<div class="title"><a href="/iphone-12-series" title="Sản phẩm cùng danh mục">Sản phẩm cùng danh mục</a></div>
 				<div class="clearfix"></div>
 				<div class="evo-owl-product swiper-container">
-					<div class="swiper-wrapper">
+					<div class="swiper-wrapper san-pham-cung-danh-muc">
 						<div class="swiper-slide">
 							<div class="evo-product-block-item">
 								<a href="/iphone-12-pro-max-256gb-chinh-hang-vn-a" title="iPhone 12 Pro Max 256GB Chính Hãng (VN/A)" class="product__box-image">
@@ -418,135 +419,6 @@
 								<div class="product__box-btn">
 									<a href="/iphone-12-pro-max-256gb-chinh-hang-vn-a" class="btn-buy" title="Chi tiết">Chi tiết</a>
 									<a href="javascript:void(0)" title="Yêu thích" data-handle="iphone-12-pro-max-256gb-chinh-hang-vn-a" class="btn-compare like-button">Yêu thích</a>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="evo-product-block-item">
-								<a href="/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" title="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen" class="product__box-image">
-									<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/large/100/415/483/products/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-10-215904-600x600.jpg?v=1611325223837"
-										 alt="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen" />
-									<span class="sales">
-										<i class="icon-flash2"></i> Giảm
-										1.960.000₫
-									</span>
-								</a>
-								<a href="/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" title="Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen" class="product__box-name">Bàn phím Smart Keyboard iPad Pro 11 US Apple MU8G2 Đen</a>
-								<div class="product__box-price">
-									<span class="price">4.540.000₫</span>
-									<span class="old-price">6.500.000₫</span>
-								</div>
-								<div class="evo-tag">
-									<span>Trả góp 0% lãi suất</span>
-									<span>Bảo hành 1 đổi 1</span>
-								</div>
-								<div class="product__box-btn">
-									<a href="/ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" class="btn-buy" title="Chi tiết">Chi tiết</a>
-									<a href="javascript:void(0)" title="Yêu thích" data-handle="ban-phim-smart-keyboard-ipad-pro-11-us-apple-mu8g2-den" class="btn-compare like-button">Yêu thích</a>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="evo-product-block-item">
-								<a href="/ban-phim-magic-keyboard-ipad-pro-11-mxqt2za-a" title="Bàn phím Magic Keyboard iPad Pro 11 (MXQT2ZA/A)" class="product__box-image">
-									<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/large/100/415/483/products/ban-phim-magic-keyboard-ipad-pro-11-mxqt2za-a-152520-0925240227100-600x600.jpg?v=1611325069203"
-										 alt="Bàn phím Magic Keyboard iPad Pro 11 (MXQT2ZA/A)" />
-									<span class="sales">
-										<i class="icon-flash2"></i> Giảm
-										910.000₫
-									</span>
-								</a>
-								<a href="/ban-phim-magic-keyboard-ipad-pro-11-mxqt2za-a" title="Bàn phím Magic Keyboard iPad Pro 11 (MXQT2ZA/A)" class="product__box-name">Bàn phím Magic Keyboard iPad Pro 11 (MXQT2ZA/A)</a>
-								<div class="product__box-price">
-									<span class="price">8.990.000₫</span>
-									<span class="old-price">9.900.000₫</span>
-								</div>
-								<div class="box-promotion">
-									<span class="bag">KM</span>
-									<div class="box-promotions">
-										<p>Giảm 10% khi mua kèm iPhone/iPad và&nbsp;<strong>2</strong>&nbsp;khuyến mãi khác</p>
-									</div>
-								</div>
-								<div class="product__box-btn">
-									<a href="/ban-phim-magic-keyboard-ipad-pro-11-mxqt2za-a" class="btn-buy" title="Chi tiết">Chi tiết</a>
-									<a href="javascript:void(0)" title="Yêu thích" data-handle="ban-phim-magic-keyboard-ipad-pro-11-mxqt2za-a" class="btn-compare like-button">Yêu thích</a>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="evo-product-block-item">
-								<a href="/iphone-12-mini-64gb-chinh-hang-vn-a" title="iPhone 12 mini 64GB Chính hãng (VN/A)" class="product__box-image">
-									<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/large/100/415/483/products/600x600-crop-iphone-12-mini-128gb-xtmobile-c32e1960-40fd-414b-8144-fb8517a9de97.jpg?v=1611320187690"
-										 alt="iPhone 12 mini 64GB Chính hãng (VN/A)" />
-									<span class="sales">
-										<i class="icon-flash2"></i> Giảm
-										6.000.000₫
-									</span>
-								</a>
-								<a href="/iphone-12-mini-64gb-chinh-hang-vn-a" title="iPhone 12 mini 64GB Chính hãng (VN/A)" class="product__box-name">iPhone 12 mini 64GB Chính hãng (VN/A)</a>
-								<div class="product__box-price">
-									<span class="price">18.990.000₫</span>
-									<span class="old-price">24.990.000₫</span>
-								</div>
-								<div class="evo-tag">
-									<span>Trả góp 0% lãi suất</span>
-									<span>Bảo hành 12 tháng</span>
-								</div>
-								<div class="product__box-btn">
-									<a href="/iphone-12-mini-64gb-chinh-hang-vn-a" class="btn-buy" title="Chi tiết">Chi tiết</a>
-									<a href="javascript:void(0)" title="Yêu thích" data-handle="iphone-12-mini-64gb-chinh-hang-vn-a" class="btn-compare like-button">Yêu thích</a>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="evo-product-block-item">
-								<a href="/iphone-12-chinh-hang-vn-a" title="iPhone 12 256GB Chính Hãng (VN/A)" class="product__box-image">
-									<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/large/100/415/483/products/iphone-12-xanh-duong-new-600x600-600x600-1ee001de-287b-4cd1-af62-bd46227174cf.jpg?v=1611321012763"
-										 alt="iPhone 12 256GB Chính Hãng (VN/A)" />
-									<span class="sales">
-										<i class="icon-flash2"></i> Giảm
-										2.000.000₫
-									</span>
-								</a>
-								<a href="/iphone-12-chinh-hang-vn-a" title="iPhone 12 256GB Chính Hãng (VN/A)" class="product__box-name">iPhone 12 256GB Chính Hãng (VN/A)</a>
-								<div class="product__box-price">
-									<span class="price">22.990.000₫</span>
-									<span class="old-price">24.990.000₫</span>
-								</div>
-								<div class="evo-tag">
-									<span>Bảo hành 12 tháng</span>
-									<span>Trade-in tiết kiệm 10 triệu</span>
-								</div>
-								<div class="product__box-btn">
-									<a href="/iphone-12-chinh-hang-vn-a" class="btn-buy" title="Chi tiết">Chi tiết</a>
-									<a href="javascript:void(0)" title="Yêu thích" data-handle="iphone-12-chinh-hang-vn-a" class="btn-compare like-button">Yêu thích</a>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="evo-product-block-item">
-								<a href="/iphone-12-pro-max-chinh-hang-vn-a" title="iPhone 12 Pro Max Chính Hãng (VN/A)" class="product__box-image">
-									<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/large/100/415/483/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-dd0d9c3f-a876-4254-b206-399a8a050fca.jpg?v=1611321181100"
-										 alt="iPhone 12 Pro Max Chính Hãng (VN/A)" />
-									<span class="sales">
-										<i class="icon-flash2"></i> Giảm
-										400.000₫
-									</span>
-								</a>
-								<a href="/iphone-12-pro-max-chinh-hang-vn-a" title="iPhone 12 Pro Max Chính Hãng (VN/A)" class="product__box-name">iPhone 12 Pro Max Chính Hãng (VN/A)</a>
-								<div class="product__box-price">
-									<span class="price">33.590.000₫</span>
-									<span class="old-price">33.990.000₫</span>
-								</div>
-								<div class="box-promotion">
-									<span class="bag">KM</span>
-									<div class="box-promotions">
-										<p>Pin sạc dự phòng giảm 30% khi mua kèm. Mua Đồng hồ thời trang giảm 40% (không kèm khuyến mãi khác). Giá hoặc khuyến mãi không áp dụng khi mua trả góp 0% qua nhà tài chính.</p>
-									</div>
-								</div>
-								<div class="product__box-btn">
-									<a href="/iphone-12-pro-max-chinh-hang-vn-a" class="btn-buy" title="Chi tiết">Chi tiết</a>
-									<a href="javascript:void(0)" title="Yêu thích" data-handle="iphone-12-pro-max-chinh-hang-vn-a" class="btn-compare like-button">Yêu thích</a>
 								</div>
 							</div>
 						</div>

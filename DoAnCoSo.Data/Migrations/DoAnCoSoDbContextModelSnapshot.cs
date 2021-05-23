@@ -128,6 +128,23 @@ namespace DoAnCoSo.Data.Migrations
                     b.ToTable("ChiTietSanPhams");
                 });
 
+            modelBuilder.Entity("DoAnCoSo.DTOs.Config", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(2048)
+                        .HasColumnType("nvarchar(2048)");
+
+                    b.HasKey("Name")
+                        .HasName("PK__Config__737584F71D05C71B");
+
+                    b.ToTable("Configs");
+                });
+
             modelBuilder.Entity("DoAnCoSo.DTOs.DanhMuc", b =>
                 {
                     b.Property<int>("Id")

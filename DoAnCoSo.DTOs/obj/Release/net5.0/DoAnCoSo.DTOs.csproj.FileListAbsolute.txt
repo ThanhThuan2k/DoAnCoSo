@@ -1,0 +1,15 @@
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\DoAnCoSo.DTOs.deps.json
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\DoAnCoSo.DTOs.runtimeconfig.json
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\DoAnCoSo.DTOs.runtimeconfig.dev.json
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\DoAnCoSo.DTOs.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\ref\DoAnCoSo.DTOs.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\bin\Release\net5.0\DoAnCoSo.DTOs.pdb
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.csprojAssemblyReference.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.AssemblyInfoInputs.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.AssemblyInfo.cs
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.csproj.CoreCompileInputs.cache
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\ref\DoAnCoSo.DTOs.dll
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.pdb
+D:\C#\DoAnCoSo\DoAnCoSo\DoAnCoSo.DTOs\obj\Release\net5.0\DoAnCoSo.DTOs.genruntimeconfig.cache

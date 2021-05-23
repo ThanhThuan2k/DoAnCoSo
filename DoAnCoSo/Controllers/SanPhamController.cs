@@ -117,5 +117,11 @@ namespace DoAnCoSo.Controllers
 			}
 			return Json(gioHangList);
 		}
+
+		public async Task<JsonResult> GetSanPhamLienQuan(int id)
+		{
+			var model = await sanPhamRepo.GetSanPhamLienQuan(id);
+			return Json(model);
+		}
 	}
 }

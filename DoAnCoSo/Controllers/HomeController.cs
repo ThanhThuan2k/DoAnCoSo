@@ -19,7 +19,6 @@ namespace DoAnCoSo.Controllers
 		[Authorize(AuthenticationSchemes = "Customer")]
 		public IActionResult Index()
 		{
-			SanPhamRepository sanPham = new SanPhamRepository();
 			return View();
 		}
 

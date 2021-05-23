@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\desploy</_PublishTargetUrl>
+    <History>True|2021-05-23T14:24:17.0303351Z;False|2021-05-23T21:21:43.1146055+07:00;False|2021-05-23T21:18:24.9201362+07:00;True|2021-05-23T21:08:15.1492110+07:00;True|2021-05-23T11:33:27.5848066+07:00;True|2021-05-21T15:51:14.3262727+07:00;True|2021-05-21T15:32:26.9955704+07:00;</History>
+  </PropertyGroup>
+</Project>

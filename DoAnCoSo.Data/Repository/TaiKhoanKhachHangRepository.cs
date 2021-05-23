@@ -55,5 +55,29 @@ namespace DoAnCoSo.Data.Repository
 		{
 			return await db.ThongTinKhachHangs.SingleOrDefaultAsync(x => x.Email == email);
 		}
+
+		public async Task<ChiTietTaiKhoanKhachHangClientModel> ChiTietTaiKhoanKhachHang(string email)
+		{
+			var taiKhoanKhachHang = await db.ThongTinKhachHangs
+				.Where(x => x.Email == email)
+				.Select(x => new ChiTietTaiKhoanKhachHangClientModel()
+				{
+					Id = x.Id,
+					HoTenKhachHang = x.TenKhachHang,
+					Email = x.Email,
+					SoDienThoai = x.SoDienThoai,
+					NgayTaoTaiKhoan = x.NgayTaoTaiKhoan,
+					DanhSachDonDatHang = db.DonDatHangs.Where(x => x.Email == x.Email).OrderByDescending(x => x.Id).Take(6).ToList()
+				})
+				.SingleOrDefaultAsync();
+			if (taiKhoanKhachHang != null)
+			{
+				return taiKhoanKhachHang;
+			}
+			else
+			{
+				return null;
+			}
+		}
 	}
 }

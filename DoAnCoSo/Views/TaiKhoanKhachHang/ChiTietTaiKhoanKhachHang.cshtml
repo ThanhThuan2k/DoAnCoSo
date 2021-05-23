@@ -1,0 +1,61 @@
+﻿@model DoAnCoSo.Data.ModelHelper.ChiTietTaiKhoanKhachHangClientModel
+@{
+	ViewData["Title"] = "ChiTietTaiKhoanKhachHang";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css{
+	<link href="~/User/css/account/evo_account.css" rel="stylesheet" />
+	<link href="~/User/css/account/account_order.css" rel="stylesheet" />
+	<style>
+		.can-be-overflow {
+			width: 100%;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	</style>
+}
+
+<section class="bread-crumb">
+	<div class="container">
+		<ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="home" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a itemprop="item" href="/" title="Trang chủ">
+					<span itemprop="name">Trang chủ</span>
+					<meta itemprop="position" content="1" />
+				</a>
+			</li>
+			<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<strong itemprop="name">Thông tin tài khoản</strong>
+				<meta itemprop="position" content="2" />
+			</li>
+		</ul>
+	</div>
+</section>
+<section class="signup page_customer_account">
+	<div class="container">
+		<div class="shadow-sm">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-lg-6 col-right-ac">
+					<h1 class="title-head margin-top-10">Thông tin tài khoản</h1>
+					<div class="form-signup name-account m992">
+						<p class="can-be-overflow"><strong>Họ tên:  </strong>  @Model.HoTenKhachHang</p>
+						<p class="can-be-overflow"><strong>Email:  </strong>@Model.Email</p>
+						<p class="can-be-overflow"><strong>Số điện thoại đăng kí:  </strong>@Model.SoDienThoai</p>
+						<p class="can-be-overflow"><strong>Ngày tạo tài khoản:  </strong>@Model.NgayTaoTaiKhoan</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-lg-6 col-right-ac">
+					<h1 class="title-head margin-top-10">Đơn đặt hàng</h1>
+					<div class="form-signup name-account m992">
+						@foreach (var item in Model.DanhSachDonDatHang)
+						{
+							<p><strong>Ngày: @item.NgayDat</strong> - <strong>@item.TongTienHoaDon.ToString("#,###đ")</strong></p>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
