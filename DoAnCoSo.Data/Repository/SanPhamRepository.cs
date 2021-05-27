@@ -341,5 +341,31 @@ namespace DoAnCoSo.Data.Repository
 			}
 			return model;
 		}
+
+		public async Task<List<SanPhamReviewClientModel>> GetSanPhamLienQuan(int id)
+		{
+			return await db.DanhMucs
+				.AsNoTracking()
+				.Where(x => x.Id == id)
+				.SelectMany(x => x.ChiTietSanPhamNavigation)
+				.Select(x => new SanPhamReviewClientModel()
+				{
+					Id = x.Id,
+					AnhDaiDien = x.AnhDaiDien,
+					TenSanPham = x.TenSanPham,
+					GiaKhuyenMai = x.GiamGia??0,
+					GiaGoc = x.GiaGocSanPham ?? 0,
+					RAM = x.DanhSachThongSo
+					.Where(x => x.TenThongSo == "RAM")
+					.Select(x => x.MoTa)
+					.FirstOrDefault(),
+					DungLuong = x.DanhSachThongSo
+					.Where(x => x.TenThongSo == "Dung lượng")
+					.Select(x => x.MoTa)
+					.FirstOrDefault()
+				})
+				.OrderByDescending(x => x.Id)
+				.ToListAsync();
+		}
 	}
 }

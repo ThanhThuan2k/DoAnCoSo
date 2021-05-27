@@ -143,7 +143,7 @@
 									<div class="section__header">
 										<div class="layout-flex">
 											<h2 class="section__title layout-flex__item layout-flex__item--stretch">
-												<i class="fa fa-id-card-o fa-lg section__title--icon hide-on-desktop"></i> Thông tin nhận hàng
+												Thông tin nhận hàng
 											</h2>
 											@if (User.Identity.IsAuthenticated)
 											{
@@ -176,7 +176,7 @@
 											<div class="field " data-bind-class="{'field--show-floating-label': billing.name}">
 												<div class="field__input-wrapper">
 													<label for="billingName" class="field__label">Họ và tên</label>
-													<input id="billingName" type="text" class="field__input" data-bind="billing.name" value="@ViewBag.HoVaTen">
+													<input id="billingName" type="text" class="field__input" data-bind="billing.name" value="@ViewBag.HoVaTen" required>
 												</div>
 											</div>
 											<div class="field " data-bind-class="{'field--show-floating-label': billing.phone}">
@@ -184,7 +184,7 @@
 													<label for="billingPhone" class="field__label">
 														Số điện thoại (tùy chọn)
 													</label>
-													<input id="billingPhone" type="tel" class="field__input" data-bind="billing.phone" value="@ViewBag.SoDienThoai">
+													<input id="billingPhone" type="tel" class="field__input" data-bind="billing.phone" value="@ViewBag.SoDienThoai" required>
 												</div>
 											</div>
 											<div class="field " data-bind-class="{'field--show-floating-label': billing.address}">
@@ -243,7 +243,7 @@
 									<div class="section__header">
 										<div class="layout-flex">
 											<h2 class="section__title layout-flex__item layout-flex__item--stretch">
-												<i class="fa fa-credit-card fa-lg section__title--icon hide-on-desktop"></i> Thanh toán
+												Thanh toán
 											</h2>
 										</div>
 									</div>
@@ -273,7 +273,7 @@
 									<div class="section__header">
 										<div class="layout-flex">
 											<h2 class="section__title layout-flex__item layout-flex__item--stretch">
-												<i class="fa fa-credit-card fa-lg section__title--icon hide-on-desktop"></i> Thanh toán
+												Thanh toán
 											</h2>
 										</div>
 									</div>
@@ -312,10 +312,6 @@
 									<use href="#spinner"></use>
 								</svg>
 							</button>
-							<a href="/cart" class="previous-link">
-								<i class="previous-link__arrow">❮</i>
-								<span class="previous-link__content">Quay về giỏ hàng</span>
-							</a>
 						</div>
 						<div id="common-alert" data-tg-refresh="refreshError">
 							<div class="alert alert--danger hide-on-desktop">
@@ -432,11 +428,6 @@
 										<i class="previous-link__arrow">❮</i>
 										<span class="previous-link__content">Quay về giỏ hàng</span>
 									</a>
-								</div>
-								<div id="common-alert-sidebar">
-									<div class="alert alert--danger hide-on-mobile" style="display: flex; justify-content: center;">
-										Thông tin hợp lệ
-									</div>
 								</div>
 							</div>
 						</div>

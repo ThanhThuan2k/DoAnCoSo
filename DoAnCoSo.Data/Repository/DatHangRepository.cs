@@ -27,5 +27,10 @@ namespace DoAnCoSo.Data.Repository
 				return false;
 			}
 		}
+
+		public async Task<List<DonDatHang>> GetAllDonDatHang()
+		{
+			return await db.DonDatHangs.ToListAsync();
+		}
 	}
 }

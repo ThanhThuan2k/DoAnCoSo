@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+	var conf = new SystemConfiguration();
+}
+
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -57,165 +61,6 @@
 						</li>
 						<li class=" nav-item has-childs   has-mega">
 							<a asp-action="DanhSach" asp-controller="SanPham" class="nav-link" title="Sản phẩm">Sản phẩm <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" xml:space="preserve" width="25px" height="25px"><path d="M487.536,120.445c-4.16-4.16-10.923-4.16-15.083,0L245.339,347.581L18.203,120.467c-4.16-4.16-10.923-4.16-15.083,0    c-4.16,4.16-4.16,10.923,0,15.083l234.667,234.667c2.091,2.069,4.821,3.115,7.552,3.115s5.461-1.045,7.531-3.136l234.667-234.667    C491.696,131.368,491.696,124.605,487.536,120.445z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#141414" /></svg></a>
-							<div class="mega-content">
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-8">
-											<ul class="level0">
-												<li class="level1 parent item fix-navs">
-													<a class="hmega" href="/dien-thoai" title="Điện thoại">Điện thoại</a>
-													<ul class="level1">
-														<li class="level2">
-															<a href="/apple" title="Apple">Apple</a>
-														</li>
-														<li class="level2">
-															<a href="/samsung" title="Samsung">Samsung</a>
-														</li>
-														<li class="level2">
-															<a href="/xiaomi" title="Xiaomi">Xiaomi</a>
-														</li>
-														<li class="level2">
-															<a href="/oppo" title="OPPO">OPPO</a>
-														</li>
-														<li class="level2">
-															<a href="/nokia" title="Nokia">Nokia</a>
-														</li>
-														<li class="level2">
-															<a href="/realme" title="Realme">Realme</a>
-														</li>
-														<li class="level2">
-															<a href="/vsmart" title="Vsmart">Vsmart</a>
-														</li>
-														<li class="level2">
-															<a href="/asus" title="ASUS">ASUS</a>
-														</li>
-														<li class="level2">
-															<a href="/huawei" title="Huawei">Huawei</a>
-														</li>
-														<li class="level2">
-															<a href="/vivo" title="Vivo">Vivo</a>
-														</li>
-													</ul>
-												</li>
-												<li class="level1 parent item fix-navs">
-													<a class="hmega" href="/laptop" title="Laptop">Laptop</a>
-													<ul class="level1">
-														<li class="level2">
-															<a href="/thiet-bi-van-phong" title="Thiết bị văn phòng">Thiết bị văn phòng</a>
-														</li>
-														<li class="level2">
-															<a href="/macbook" title="MacBook">MacBook</a>
-														</li>
-														<li class="level2">
-															<a href="/microsoft-surface" title="Microsoft Surface">Microsoft Surface</a>
-														</li>
-														<li class="level2">
-															<a href="/asus-1" title="Asus">Asus</a>
-														</li>
-														<li class="level2">
-															<a href="/dell" title="Dell">Dell</a>
-														</li>
-														<li class="level2">
-															<a href="/msi" title="MSI">MSI</a>
-														</li>
-													</ul>
-												</li>
-												<li class="level1 parent item fix-navs">
-													<a class="hmega" href="/tablet" title="Tablet">Tablet</a>
-													<ul class="level1">
-														<li class="level2">
-															<a href="/ipad-pro" title="iPad Pro">iPad Pro</a>
-														</li>
-														<li class="level2">
-															<a href="/ipad-10-2" title="iPad 10.2">iPad 10.2</a>
-														</li>
-														<li class="level2">
-															<a href="/ipad-air" title="iPad Air">iPad Air</a>
-														</li>
-														<li class="level2">
-															<a href="/ipad-9-7" title="iPad 9.7">iPad 9.7</a>
-														</li>
-														<li class="level2">
-															<a href="/ipad-mini" title="iPad mini">iPad mini</a>
-														</li>
-													</ul>
-												</li>
-												<li class="level1 parent item fix-navs">
-													<a class="hmega" href="/phu-kien" title="Phụ kiện">Phụ kiện</a>
-													<ul class="level1">
-														<li class="level2">
-															<a href="/phu-kien-noi-bat" title="Phụ kiện nổi bật">Phụ kiện nổi bật</a>
-														</li>
-														<li class="level2">
-															<a href="/bao-da-op-lung" title="Bao da ốp lưng">Bao da ốp lưng</a>
-														</li>
-														<li class="level2">
-															<a href="/sac-du-phong" title="Sạc dự phòng">Sạc dự phòng</a>
-														</li>
-														<li class="level2">
-															<a href="/the-nho" title="Thẻ nhớ">Thẻ nhớ</a>
-														</li>
-														<li class="level2">
-															<a href="/phu-kien-apple" title="Phụ kiện Apple">Phụ kiện Apple</a>
-														</li>
-														<li class="level2">
-															<a href="/dan-man-hinh" title="Dán màn hình">Dán màn hình</a>
-														</li>
-														<li class="level2">
-															<a href="/tai-nghe" title="Tai nghe">Tai nghe</a>
-														</li>
-														<li class="level2">
-															<a href="/loa" title="Loa">Loa</a>
-														</li>
-														<li class="level2">
-															<a href="/usb-o-cung" title="USB - Ổ cứng">USB - Ổ cứng</a>
-														</li>
-														<li class="level2">
-															<a href="/sac-cap" title="Sạc cáp">Sạc cáp</a>
-														</li>
-														<li class="level2">
-															<a href="/chuot" title="Chuột">Chuột</a>
-														</li>
-														<li class="level2">
-															<a href="/gia-do-dien-thoai" title="Giá đỡ điện thoại">Giá đỡ điện thoại</a>
-														</li>
-														<li class="level2">
-															<a href="/balo-tui-xach" title="Balo - Túi xách">Balo - Túi xách</a>
-														</li>
-														<li class="level2">
-															<a href="/day-dong-ho" title="Dây đồng hồ">Dây đồng hồ</a>
-														</li>
-														<li class="level2">
-															<a href="/thiet-bi-mang" title="Thiết bị mạng">Thiết bị mạng</a>
-														</li>
-													</ul>
-												</li>
-												<li class="level1 item">
-													<a class="hmega" href="/am-thanh" title="Âm thanh">Âm thanh</a>
-												</li>
-												<li class="level1 item">
-													<a class="hmega" href="/dong-ho" title="Đồng hồ">Đồng hồ</a>
-												</li>
-												<li class="level1 item">
-													<a class="hmega" href="/nha-thong-minh" title="Nhà thông minh">Nhà thông minh</a>
-												</li>
-												<li class="level1 item">
-													<a class="hmega" href="/linh-kien-pc" title="Linh kiện PC">Linh kiện PC</a>
-												</li>
-												<li class="level1 item">
-													<a class="hmega" href="/may-tinh" title="Máy tính">Máy tính</a>
-												</li>
-											</ul>
-										</div>
-										<div class="col-lg-4">
-											<a href="#" title="Sản phẩm">
-												<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/100/415/483/themes/804267/assets/mega-1-image.jpg?1613655523892"
-													 alt="Sản phẩm" class="lazy img-responsive mx-auto d-block" />
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
 						</li>
 						<li class=" nav-item has-childs  ">
 							<a href="/blogs/all" class="nav-link" title="Tin tức">Tin tức <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490.656 490.656" xml:space="preserve" width="25px" height="25px"><path d="M487.536,120.445c-4.16-4.16-10.923-4.16-15.083,0L245.339,347.581L18.203,120.467c-4.16-4.16-10.923-4.16-15.083,0    c-4.16,4.16-4.16,10.923,0,15.083l234.667,234.667c2.091,2.069,4.821,3.115,7.552,3.115s5.461-1.045,7.531-3.136l234.667-234.667    C491.696,131.368,491.696,124.605,487.536,120.445z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#141414" /></svg></a>
@@ -250,7 +95,7 @@
 				</div>
 				<div class="col-lg-2 col-md-2 evo-header-flex-item evo-header-flex-item-mobile">
 					<div class="evo-main-hotline">
-						<a href="tel:0123456789" title="Gọi mua hàng:"><span>Gọi mua hàng:</span>0123 456 789</a>
+						<a href="tel:@conf.SoDienThoai.Value" title="Gọi mua hàng:"><span>Gọi mua hàng:</span>@conf.SoDienThoai.Value</a>
 					</div>
 					<a href="javascript:void(0)" class="evo-header-cart show-cart d-sm-inline-block d-lg-none" aria-label="Xem giỏ hàng" title="Giỏ hàng">
 						<svg viewBox="0 0 512 512"><g><path xmlns="http://www.w3.org/2000/svg" d="m504.399 185.065c-6.761-8.482-16.904-13.348-27.83-13.348h-98.604l-53.469-122.433c-3.315-7.591-12.157-11.06-19.749-7.743-7.592 3.315-11.059 12.158-7.743 19.75l48.225 110.427h-178.458l48.225-110.427c3.315-7.592-.151-16.434-7.743-19.75-7.591-3.317-16.434.15-19.749 7.743l-53.469 122.434h-98.604c-10.926 0-21.069 4.865-27.83 13.348-6.637 8.328-9.086 19.034-6.719 29.376l52.657 230c3.677 16.06 17.884 27.276 34.549 27.276h335.824c16.665 0 30.872-11.216 34.549-27.276l52.657-230.001c2.367-10.342-.082-21.048-6.719-29.376zm-80.487 256.652h-335.824c-2.547 0-4.778-1.67-5.305-3.972l-52.657-229.998c-.413-1.805.28-3.163.936-3.984.608-.764 1.985-2.045 4.369-2.045h85.503l-3.929 8.997c-3.315 7.592.151 16.434 7.743 19.75 1.954.854 3.99 1.258 5.995 1.258 5.782 0 11.292-3.363 13.754-9l9.173-21.003h204.662l9.173 21.003c2.462 5.638 7.972 9 13.754 9 2.004 0 4.041-.404 5.995-1.258 7.592-3.315 11.059-12.158 7.743-19.75l-3.929-8.997h85.503c2.384 0 3.761 1.281 4.369 2.045.655.822 1.349 2.18.936 3.983l-52.657 230c-.528 2.301-2.76 3.971-5.307 3.971z" fill="#ffffff" data-original="#000000" style="" /><path xmlns="http://www.w3.org/2000/svg" d="m166 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.715-15-15-15z" fill="#ffffff" data-original="#000000" style="" /><path xmlns="http://www.w3.org/2000/svg" d="m256 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c0-8.284-6.716-15-15-15z" fill="#ffffff" data-original="#000000" style="" /><path xmlns="http://www.w3.org/2000/svg" d="m346 266.717c-8.284 0-15 6.716-15 15v110c0 8.284 6.716 15 15 15s15-6.716 15-15v-110c-.001-8.284-6.716-15-15-15z" fill="#ffffff" data-original="#000000" style="" /></g></svg>
@@ -518,18 +363,19 @@
 					</div>
 					<div class="col-xl-3 col-lg-3 evo-function-cart-header d-lg-flex d-none">
 						<div class="evo-main-account d-lg-inline-block d-none">
-							<a href="/account" class="header-account" aria-label="Tài khoản" title="Tài khoản">
+							<a href="/chi-tiet-tai-khoan" class="header-account" aria-label="Tài khoản" title="Tài khoản">
 								<svg viewBox="0 0 512 512"><path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148    C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962    c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216    h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40    c59.551,0,108,48.448,108,108S315.551,256,256,256z" data-original="#222222" class="active-path" fill="#222222" /></svg>
 								<span class="acc-text">Tài khoản</span>
 							</a>
 							@if (User.Identity.IsAuthenticated)
 							{
 								<ul>
-									<li class="ng-scope"><a rel="nofollow" href="#" title="Tài khoản">Tài khoản</a></li>
+									<li class="ng-scope"><a rel="nofollow" href="/chi-tiet-tai-khoan" title="Tài khoản">Tài khoản</a></li>
 									<li class="ng-scope"><a rel="nofollow" href="/dangxuat" title="Đăng xuất">Đăng xuất</a></li>
 									<li>
 										<a href="/san-pham-yeu-thich" aria-label="Sản phẩm Yêu thích" title="Sản phẩm Yêu thích">Yêu thích <span class="js-wishlist-count"></span></a>
 									</li>
+									<li class="ng-scope"><a rel="nofollow" href="/doimatkhau" title="Đổi mật khẩu">Đổi mật khẩu</a></li>
 								</ul>
 							}
 							else
@@ -2119,6 +1965,32 @@
 	<script src="~/User/js/Layout/Cart.js"></script>
 	<script src="~/User/js/Layout/MobileMenu.js"></script>
 	@RenderSection("js", false)
+	<!-- Messenger Plugin chat Code -->
+	<div id="fb-root"></div>
+
+	<!-- Your Plugin chat code -->
+	<div id="fb-customer-chat" class="fb-customerchat">
+	</div>
+
+	<script>
+		var chatbox = document.getElementById('fb-customer-chat');
+		chatbox.setAttribute("page_id", "103350341953277");
+		chatbox.setAttribute("attribution", "biz_inbox");
+		window.fbAsyncInit = function () {
+			FB.init({
+				xfbml: true,
+				version: 'v10.0'
+			});
+		};
+
+		(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 </body>
 
 </html>

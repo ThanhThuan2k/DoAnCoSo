@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DoAnCoSo.Data.Repository;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace DoAnCoSo.Areas.Admin.Controllers
 	[Area("Admin")]
 	public class DonDatHangController : Controller
 	{
-		public IActionResult Index()
+		DatHangRepository datHangRepo = new DatHangRepository();
+		public async Task<IActionResult> Index()
 		{
-			return View();
+			var model = await datHangRepo.GetAllDonDatHang();
+			return View(model);
 		}
 	}
 }

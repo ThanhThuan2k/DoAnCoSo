@@ -136,5 +136,28 @@ namespace DoAnCoSo.Controllers
 			await HttpContext.SignOutAsync("Customer");
 			return RedirectToAction("Index", "Home");
 		}
+
+		[Route("/chi-tiet-tai-khoan")]
+		[AllowAnonymous]
+		[Authorize(AuthenticationSchemes = "Customer")]
+		public async Task<IActionResult> ChiTietTaiKhoanKhachHang()
+		{
+			if (User.Identity.IsAuthenticated)
+			{
+				var model = await taiKhoanRepo.ChiTietTaiKhoanKhachHang(User.Identity.Name);
+				if (model != null)
+				{
+					return View(model);
+				}
+				else
+				{
+					return Redirect("/dangxuat");
+				}
+			}
+			else
+			{
+				return Redirect("/dangnhap");
+			}
+		}
 	}
 }

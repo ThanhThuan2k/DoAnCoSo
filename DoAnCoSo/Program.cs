@@ -14,7 +14,7 @@ namespace DoAnCoSo
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://doancoso1.coderspac3.com:2503");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://coderspac3.com:2503");
                 });
     }
 }

@@ -1,0 +1,12 @@
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\bin\Release\net5.0\Logging.deps.json
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\bin\Release\net5.0\Logging.dll
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\bin\Release\net5.0\ref\Logging.dll
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\bin\Release\net5.0\Logging.pdb
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.csprojAssemblyReference.cache
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.AssemblyInfoInputs.cache
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.AssemblyInfo.cs
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.csproj.CoreCompileInputs.cache
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.dll
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\ref\Logging.dll
+D:\C#\DoAnCoSo\DoAnCoSo\Logging\obj\Release\net5.0\Logging.pdb
